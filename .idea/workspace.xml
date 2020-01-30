@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="" />
+    <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/documentprocessors/BaseStemmer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/documentprocessors/WordBasedStopWordRemover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/documentprocessors/WordBasedTermFetcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/DocumentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/DocumentDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +30,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -29,6 +44,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1X5u8udumEsI6mlBAQFQCYUnPLf" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -36,6 +52,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -44,6 +61,26 @@
       <recent name="org.hillhouse.sriparna" />
       <recent name="org.hillhouse.sriparna.models" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.hillhouse.sriparna.App" />
+      <module name="searchdb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hillhouse.sriparna.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -67,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580348121005</updated>
-      <workItem from="1580348127141" duration="11146000" />
+      <workItem from="1580348127141" duration="14587000" />
     </task>
     <servers />
   </component>
@@ -75,10 +112,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1580362592347">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1580367439555">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1580362592347" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1580367439555" />
     <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1580349199413">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -91,22 +128,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="452" y="339" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1440.900@0.0.1440.900" timestamp="1580349201480" />
-    <state width="1400" height="238" key="GridCell.Tab.0.bottom" timestamp="1580348132700">
+    <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1580367367772">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580348132700" />
-    <state width="1400" height="238" key="GridCell.Tab.0.center" timestamp="1580348132699">
+    <state width="1400" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580367367772" />
+    <state width="1400" height="244" key="GridCell.Tab.0.center" timestamp="1580367367771">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580348132699" />
-    <state width="1400" height="238" key="GridCell.Tab.0.left" timestamp="1580348132699">
+    <state width="1400" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580367367771" />
+    <state width="1400" height="244" key="GridCell.Tab.0.left" timestamp="1580367367769">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580348132699" />
-    <state width="1400" height="238" key="GridCell.Tab.0.right" timestamp="1580348132700">
+    <state width="1400" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580367367769" />
+    <state width="1400" height="244" key="GridCell.Tab.0.right" timestamp="1580367367771">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580348132700" />
+    <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580367367771" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1580349835928">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
