@@ -6,4 +6,5 @@ import lombok.Data;
 public class SystemConfig {
     private int diskSizeOnMerge = 90;
     private int intervalInSecForMerge = 1;
+    private int inmemoryDataSize = 10;
 }

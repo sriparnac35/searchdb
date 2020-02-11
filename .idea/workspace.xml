@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/documentprocessors/BaseStemmer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/documentprocessors/WordBasedStopWordRemover.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/documentprocessors/WordBasedTermFetcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/daos/SSDocumentDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/DocumentItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DocumentIndexer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/DocumentDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/DocumentDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/configs/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/configs/SystemConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/Initializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/Initializable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/Document.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +102,8 @@
       <option name="presentableId" value="Default" />
       <updated>1580348121005</updated>
       <workItem from="1580348127141" duration="14587000" />
+      <workItem from="1580813392241" duration="32000" />
+      <workItem from="1581409963006" duration="6827000" />
     </task>
     <servers />
   </component>
@@ -112,10 +111,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1580367439555">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1581417292025">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1580367439555" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1581417292025" />
     <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1580349199413">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -144,9 +143,13 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580367367771" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1580349835928">
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580370908879">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1580349835928" />
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1580370908879" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1581412194174">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1581412194174" />
   </component>
 </project>

@@ -1,6 +1,6 @@
 package org.hillhouse.sriparna.interfaces;
 
 public interface Initializable {
-    void initialize();
-    void destroy();
+    void initialize() throws Exception;
+    void destroy() throws Exception;
 }

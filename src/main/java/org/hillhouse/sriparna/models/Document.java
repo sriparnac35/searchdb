@@ -1,16 +1,17 @@
 package org.hillhouse.sriparna.models;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.Map;
-
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@NoArgsConstructor
-@Getter
+@Data
 public class Document {
     private String id;
-    @Setter private boolean isDeleted;
+    private byte[] data;
     private long timestamp;
-    private Map<String, String> data;
+    private boolean isDeleted;
 }
