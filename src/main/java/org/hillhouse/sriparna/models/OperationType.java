@@ -1,5 +1,5 @@
 package org.hillhouse.sriparna.models;
 
-public enum ChangeType {
+public enum OperationType {
     INSERT, UPDATE, DELETE
 }

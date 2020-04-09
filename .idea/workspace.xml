@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/daos/SSDocumentDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/DocumentItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DocumentIndexer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/models/wal/WalEntryType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/configs/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/configs/SystemConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/Initializable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/Initializable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/EventManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventBroadcasters/EventBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/EventBroadcaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventBroadcasters/PollBasedEventBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventBroadcasters/PollBasedEventBroadcaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventSubscribers/BaseEventSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventSubscribers/BaseEventSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventSubscribers/EventSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/EventSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/ChangeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/OperationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DocumentIndexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DocumentIndexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +47,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1X5u8udumEsI6mlBAQFQCYUnPLf" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -55,8 +63,12 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="main.models" />
       <recent name="org.hillhouse.sriparna" />
       <recent name="org.hillhouse.sriparna.models" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.interfaces" />
     </key>
   </component>
   <component name="RunManager">
@@ -103,7 +115,10 @@
       <updated>1580348121005</updated>
       <workItem from="1580348127141" duration="14587000" />
       <workItem from="1580813392241" duration="32000" />
-      <workItem from="1581409963006" duration="6827000" />
+      <workItem from="1581409963006" duration="8298000" />
+      <workItem from="1581517178709" duration="12000" />
+      <workItem from="1585468161561" duration="13145000" />
+      <workItem from="1586350462166" duration="23067000" />
     </task>
     <servers />
   </component>
@@ -111,22 +126,30 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1581417292025">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586412309030">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1581417292025" />
-    <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1580349199413">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586412309030" />
+    <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585473702329">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1580349199413" />
+    <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1440.900@0.0.1440.900" timestamp="1585473702329" />
     <state x="452" y="318" width="536" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1580348669896">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="452" y="318" width="536" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1440.900@0.0.1440.900" timestamp="1580348669896" />
-    <state x="452" y="339" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1580349201480">
+    <state x="452" y="339" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1585473706912">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="452" y="339" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1440.900@0.0.1440.900" timestamp="1580349201480" />
+    <state x="452" y="339" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1440.900@0.0.1440.900" timestamp="1585473706912" />
+    <state x="276" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585469140687">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="276" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1585469140687" />
+    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585469780127">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1585469780127" />
     <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1580367367772">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -143,13 +166,21 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580367367771" />
+    <state width="548" height="443" key="SwitcherDM" timestamp="1581418638633">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="548" height="443" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1581418638633" />
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1580370908879">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1440.900@0.0.1440.900" timestamp="1580370908879" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1581412194174">
+    <state x="358" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1581517180129">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1581412194174" />
+    <state x="358" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1581517180129" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586358612323">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1586358612323" />
   </component>
 </project>

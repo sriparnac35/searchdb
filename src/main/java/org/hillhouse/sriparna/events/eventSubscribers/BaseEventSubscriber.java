@@ -1,6 +1,6 @@
 package org.hillhouse.sriparna.events.eventSubscribers;
 
-import org.hillhouse.sriparna.interfaces.Initializable;
+import org.hillhouse.sriparna.interfaces.EventSubscriber;
 import org.hillhouse.sriparna.models.Event;
 
 import java.util.LinkedList;

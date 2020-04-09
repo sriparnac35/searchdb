@@ -19,7 +19,7 @@ public class DocumentIndexer implements Initializable {
     private int currentDocCount = 0;
 
 
-    public DocumentIndexer(SystemConfig systemConfig) throws Exception{
+    public DocumentIndexer(SystemConfig systemConfig) {
         this.systemConfig = systemConfig;
         this.pendingDocumentQueues = new LinkedList<>();
         this.executor = Executors.newSingleThreadExecutor();

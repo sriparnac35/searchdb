@@ -1,8 +1,8 @@
 package org.hillhouse.sriparna.events;
 
 import lombok.NonNull;
-import org.hillhouse.sriparna.events.eventBroadcasters.EventBroadcaster;
-import org.hillhouse.sriparna.events.eventSubscribers.EventSubscriber;
+import org.hillhouse.sriparna.interfaces.EventBroadcaster;
+import org.hillhouse.sriparna.interfaces.EventSubscriber;
 import org.hillhouse.sriparna.models.Event;
 
 import java.util.HashMap;

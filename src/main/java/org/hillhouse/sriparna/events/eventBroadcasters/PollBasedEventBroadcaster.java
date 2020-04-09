@@ -2,10 +2,11 @@ package org.hillhouse.sriparna.events.eventBroadcasters;
 
 import lombok.SneakyThrows;
 import org.hillhouse.sriparna.events.EventManager;
+import org.hillhouse.sriparna.interfaces.EventBroadcaster;
 import org.hillhouse.sriparna.interfaces.Initializable;
 import org.hillhouse.sriparna.models.Event;
 
-public abstract class PollBasedEventBroadcaster implements Initializable, EventBroadcaster  {
+public abstract class PollBasedEventBroadcaster implements Initializable, EventBroadcaster {
     private final EventManager eventManager;
     private final String eventName;
     private final int sleepIntervalInSec ;
