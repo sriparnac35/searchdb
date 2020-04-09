@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/models/wal/WalEntryType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/EventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventBroadcasters/EventBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/EventBroadcaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventBroadcasters/PollBasedEventBroadcaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventBroadcasters/PollBasedEventBroadcaster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventSubscribers/BaseEventSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventSubscribers/BaseEventSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/events/eventSubscribers/EventSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/interfaces/EventSubscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/ChangeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/OperationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/models/WALEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DocumentIndexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/DocumentIndexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/IndexCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/sriparna/processors/WalProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/models/mem/MemTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/models/mem/MemTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +106,7 @@
       <workItem from="1581409963006" duration="8298000" />
       <workItem from="1581517178709" duration="12000" />
       <workItem from="1585468161561" duration="13145000" />
-      <workItem from="1586350462166" duration="23067000" />
+      <workItem from="1586350462166" duration="26015000" />
     </task>
     <servers />
   </component>
@@ -126,10 +114,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586412309030">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586415965851">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586412309030" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586415965851" />
     <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1585473702329">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
