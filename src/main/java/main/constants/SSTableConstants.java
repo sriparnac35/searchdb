@@ -1,4 +1,4 @@
-package main.models.diskDS;
+package main.constants;
 
 public class SSTableConstants {
     public static final int MAX_ROW_ID_LENGTH = 256;

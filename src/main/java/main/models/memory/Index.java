@@ -2,18 +2,26 @@ package main.models.memory;
 
 import javafx.util.Pair;
 import lombok.*;
+import main.algo.BST;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Index implements Serializable {
-    @Getter private String ssTable;
-    private List<IndexItem> indexItems;
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Index implements Serializable{
+    @Getter @Setter private String ssTable;
+    @Getter @EqualsAndHashCode.Include private int id;
+    @Setter @Getter private List<IndexItem> indexItems;
 
-    public Index(String ssTable){
+    public Index(String ssTable, int id){
         this.ssTable = ssTable;
+        this.id = id;
         this.indexItems = new ArrayList<>();
+    }
+
+    public Index(int id){
+        this(null, id);
     }
 
     public void addToIndex(IndexItem indexItem){
@@ -54,7 +62,6 @@ public class Index implements Serializable {
             return (value == null) ? new Pair<>(start, end) : value;
         }
     }
-
 
 
     @NoArgsConstructor

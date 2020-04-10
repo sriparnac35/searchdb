@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Data
 public class WALQueueItem extends QueueItem {
     private String walID;
-    private AtomicInteger logID;
+    private int logID;
     private String rowKey;
     private String value;
     private OperationType operationType;

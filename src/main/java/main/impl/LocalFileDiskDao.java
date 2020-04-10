@@ -58,7 +58,7 @@ public class LocalFileDiskDao implements DiskDao {
 
     @Override
     public byte[] getData(String name, int start, int end) throws IOException {
-        int lengthToRead = end - start;
+        int lengthToRead = (end != -1) ? end - start : (int)currentFileInputStream.getChannel().size();
         byte[] data = new byte[lengthToRead];
         currentFileInputStream.read(data, start, lengthToRead);
         return data;

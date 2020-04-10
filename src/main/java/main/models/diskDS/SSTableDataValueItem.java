@@ -13,4 +13,5 @@ public class SSTableDataValueItem {
     private String rowKey;
     private String value;
     private boolean isDeleted;
+    private int offset;
 }

@@ -1,4 +1,4 @@
-package main.models.memory;
+package main.constants;
 
 public class MemtableConstants {
     public static final int MAX_SIZE = 10;
