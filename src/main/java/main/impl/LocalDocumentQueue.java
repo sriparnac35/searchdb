@@ -1,8 +1,7 @@
 package main.impl;
 
-import main.interfaces.DocumentQueue;
+import main.interfaces.utilities.DocumentQueue;
 import main.models.wal.WALQueueItem;
-import org.hillhouse.sriparna.models.WALEntry;
 
 import java.util.List;
 

@@ -5,13 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-public class PersistToSSTableBeginEvent extends Event{
+@Data
+public class PersistToSSTableFailedEvent extends Event {
     private String walID;
     private int beginLogID;
     private int endLogID;

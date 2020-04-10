@@ -1,4 +1,4 @@
-package main.interfaces;
+package main.interfaces.eventSystem;
 
 import main.models.events.Event;
 

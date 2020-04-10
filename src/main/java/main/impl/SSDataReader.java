@@ -5,11 +5,10 @@ import javafx.util.Pair;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import main.interfaces.DataReader;
-import main.interfaces.Initializable;
+import main.interfaces.capabilities.Initializable;
 import main.models.diskDS.DiskDataKey;
 import main.models.diskDS.DiskDataValue;
-import main.models.mem.Index;
+import main.models.memory.Index;
 
 import java.util.List;
 
@@ -38,6 +37,16 @@ public class SSDataReader implements Initializable, DataReader<String, String> {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<String> readAll() {
+        return null;
+    }
+
+    @Override
+    public int count() {
+        return 0;
     }
 
     @Override

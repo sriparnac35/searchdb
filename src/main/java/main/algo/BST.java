@@ -1,4 +1,4 @@
-package main.impl;
+package main.algo;
 
 import lombok.*;
 

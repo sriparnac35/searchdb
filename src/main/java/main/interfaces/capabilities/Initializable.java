@@ -1,4 +1,4 @@
-package main.interfaces;
+package main.interfaces.capabilities;
 
 public interface Initializable {
     void initialize() throws Exception;

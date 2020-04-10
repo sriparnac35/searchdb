@@ -20,6 +20,8 @@ public class SSTableConstants {
 
     public static final byte START_BYTE = 121;
     public static final byte END_BYTE = 85;
-    public static final int HEADER_SIZE_BYTES = 523;
+    public static final int ROW_HEADER_SIZE_BYTES = 523;
+    public static final int TAIL_SIZE_BYTES = 1;
+    public static final int HEADER_SIZE_BYTES = 1;
     public static final int OFFSET_DATA_START_BYTE = 1;
 }

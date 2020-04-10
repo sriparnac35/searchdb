@@ -1,4 +1,4 @@
-package main.models.events;
+package main.models.diskDS;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-public class PersistToSSTableBeginEvent extends Event{
+@Data
+public class SSTableDataKey {
     private String walID;
-    private int beginLogID;
-    private int endLogID;
+    private String tableIdentifier;
+    private int startID;
+    private int endID;
 }

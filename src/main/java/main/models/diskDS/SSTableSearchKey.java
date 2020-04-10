@@ -1,15 +1,16 @@
-package main.models.events;
+package main.models.diskDS;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import main.models.mem.MemTable;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Data
-public class MemTableFullEvent extends Event {
-    private MemTable memTable;
+public class SSTableSearchKey {
+    private String ssTableName;
+    private int startOffset;
+    private int endOffset;
 }

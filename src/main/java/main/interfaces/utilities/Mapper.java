@@ -1,4 +1,4 @@
-package main.interfaces;
+package main.interfaces.utilities;
 
 @FunctionalInterface
 public interface Mapper<I, O> {

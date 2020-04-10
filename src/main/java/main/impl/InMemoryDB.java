@@ -5,14 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import main.constants.Constants;
-import main.interfaces.*;
+import main.interfaces.capabilities.Initializable;
+import main.interfaces.eventSystem.EventManager;
+import main.interfaces.eventSystem.EventSubscriber;
+import main.interfaces.utilities.DocumentQueue;
 import main.models.events.DocumentWaldEvent;
 import main.models.events.Event;
 import main.models.events.PersistToSSTableEndEvent;
-import main.models.mem.MemTable;
+import main.impl.datastores.MemTableDataStore;
 import main.models.wal.WALQueueItem;
 
-import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
@@ -22,12 +24,12 @@ import java.util.Queue;
 public class InMemoryDB implements Initializable, EventSubscriber {
     @Inject private EventManager eventManager;
     @Inject private DocumentQueue<WALQueueItem> documentQueue;
-    private MemTable memTable;
-    private Queue<MemTable> oldMemTables ;
+    private MemTableDataStore memTable;
+    private Queue<MemTableDataStore> oldMemTables ;
 
     @Override
     public void initialize() throws Exception {
-        memTable = new MemTable();
+        memTable = new MemTableDataStore();
         memTable.initialize();
         oldMemTables = new ArrayDeque<>();
         eventManager.subscribeToEvent(this, DocumentWaldEvent.class.getSimpleName());
@@ -89,7 +91,7 @@ public class InMemoryDB implements Initializable, EventSubscriber {
 
     private void processMemTable() throws Exception {
         oldMemTables.offer(memTable);
-        memTable = new MemTable();
+        memTable = new MemTableDataStore();
         memTable.initialize();
     }
 

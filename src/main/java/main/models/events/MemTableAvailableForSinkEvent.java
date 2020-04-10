@@ -4,13 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import main.models.memory.Index;
+import main.impl.datastores.MemTableDataStore;
+import main.models.memory.Memtable;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Builder
-public class NewIndexAvailableEvent extends Event {
-    private String ssTableName;
-    private Index index;
+@Data
+public class MemTableAvailableForSinkEvent extends Event {
+    private Memtable memTable;
 }

@@ -2,11 +2,11 @@ package main.impl;
 
 import com.google.inject.Inject;
 import lombok.Getter;
-import main.interfaces.EventManager;
-import main.interfaces.EventSubscriber;
-import main.interfaces.Initializable;
+import main.interfaces.eventSystem.EventManager;
+import main.interfaces.eventSystem.EventSubscriber;
+import main.interfaces.capabilities.Initializable;
 import main.models.events.NewIndexAvailableEvent;
-import main.models.mem.Index;
+import main.models.memory.Index;
 
 import java.util.List;
 

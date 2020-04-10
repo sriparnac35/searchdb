@@ -1,4 +1,4 @@
-package main.models.mem;
+package main.models.memory;
 
 import javafx.util.Pair;
 import lombok.*;
