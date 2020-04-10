@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataValue, SSTableDataKey, SSTableDataValue> {
+public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataValue, SSTableSearchKey, SSTableDataValue> {
     private static final String FILE_PREFIX = "ss_";
     private final DiskDao diskDao;
     private final boolean shouldIndex;
@@ -48,9 +48,9 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
     }
 
     @Override
-    public SSTableDataValue search(SSTableDataKey key) throws IOException{
+    public SSTableDataValue search(SSTableSearchKey key) throws IOException{
         String ssTableName = deriveSSTableNameForKey(key);
-        byte[] bytes = diskDao.getData(ssTableName, key.getStartID(), key.getEndID());
+        byte[] bytes = diskDao.getData(ssTableName, key.getStartOffset(), key.getEndOffset());
         return new SSTableDataValue(extractValueItemFromOffset(bytes));
     }
 
@@ -100,6 +100,9 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
 
     private String deriveSSTableNameForKey(SSTableDataKey key){
         return FILE_PREFIX + key.getTableIdentifier();
+    }
+    private String deriveSSTableNameForKey(SSTableSearchKey key){
+        return FILE_PREFIX + key.getSsTableName();
     }
 
     private RowObject createRowPayload(SSTableDataValueItem dataItem){

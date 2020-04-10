@@ -6,6 +6,7 @@ import org.hillhouse.searchdb.constants.IndexConstants;
 import org.hillhouse.searchdb.interfaces.processors.DataStore;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataKey;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataValue;
+import org.hillhouse.searchdb.models.diskDS.SSTableSearchKey;
 import org.hillhouse.searchdb.models.memory.Index;
 import org.hillhouse.searchdb.models.memory.IndexSearchKey;
 
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey, SSTableDataKey> {
+public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey, SSTableSearchKey> {
     @Inject private SSTableDataStore dataStore;
 
     private List<Index> indexList;
@@ -47,7 +48,7 @@ public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey
     }
 
     @Override
-    public SSTableDataKey search(IndexSearchKey key) throws IOException {
+    public SSTableSearchKey search(IndexSearchKey key) throws IOException {
         int nextOffset = (key.getLastSearchedOffset() == -1) ? indexList.size() - 1 : key.getLastSearchedOffset() - 1;
         if (nextOffset < 0){
             return null;
@@ -55,7 +56,7 @@ public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey
         Index indexToSearch = indexList.get(nextOffset);
         Pair<Integer, Integer> offsets = indexToSearch.dataSearchRange(key.getKey());
         return (offsets == null) ? search(IndexSearchKey.builder().key(key.getKey()).lastSearchedOffset(nextOffset).build()):
-                SSTableDataKey.builder().startID(offsets.getKey()).endID(offsets.getValue()).tableIdentifier(indexToSearch.getSsTable()).build();
+                SSTableSearchKey.builder().startOffset(offsets.getKey()).endOffset(offsets.getValue()).ssTableName(indexToSearch.getSsTable()).build();
     }
 
     private Index createNewIndexWithIDFor(Integer key, String ssTable) throws IOException {
