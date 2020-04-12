@@ -57,7 +57,7 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
     private List<SSTableDataValueItem> extractValueItemFromOffset(byte[] bytes){
         List<SSTableDataValueItem> result = new ArrayList<>();
         int currentIndex = 0;
-        while(currentIndex < bytes.length - 1){
+        while(currentIndex < bytes.length){
             String rowKey = new String(Arrays.copyOfRange(bytes, currentIndex + SSTableConstants.OFFSET_ROW_ID, SSTableConstants.MAX_ROW_ID_LENGTH));
             byte flag = bytes[currentIndex + SSTableConstants.OFFSET_ROW_FLAG];
             int length = new BigInteger(Arrays.copyOfRange(bytes,currentIndex + SSTableConstants.OFFSET_ROW_VALUE_LENGTH, SSTableConstants.MAX_ROW_ID_LENGTH)).intValue();

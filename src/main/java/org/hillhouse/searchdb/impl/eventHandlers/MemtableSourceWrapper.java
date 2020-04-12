@@ -10,7 +10,6 @@ import org.hillhouse.searchdb.interfaces.utilities.DocumentQueue;
 import org.hillhouse.searchdb.models.events.DocumentWaldEvent;
 import org.hillhouse.searchdb.models.memory.MemTableDataKey;
 import org.hillhouse.searchdb.models.memory.MemTableDataValue;
-import org.hillhouse.searchdb.models.wal.WALQueueItem;
 
 import java.io.IOException;
 import java.util.Collections;

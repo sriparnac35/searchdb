@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hillhouse.searchdb.constants.Constants;
+import org.hillhouse.searchdb.interfaces.capabilities.CUDable;
 import org.hillhouse.searchdb.interfaces.dao.DiskDao;
 import org.hillhouse.searchdb.interfaces.dao.IDDao;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
@@ -14,38 +15,125 @@ import org.hillhouse.searchdb.interfaces.processors.WalProcessor;
 import org.hillhouse.searchdb.interfaces.utilities.DocumentQueue;
 import org.hillhouse.searchdb.interfaces.utilities.Mapper;
 import org.hillhouse.searchdb.models.events.*;
-import org.hillhouse.searchdb.models.input.Document;
-import org.hillhouse.searchdb.models.input.OperationType;
-import org.hillhouse.searchdb.models.wal.WALQueueItem;
-import org.hillhouse.searchdb.models.wal.WalEntry;
-import org.hillhouse.searchdb.models.wal.WalStatus;
+import org.hillhouse.searchdb.models.wal.entries.WalDataEntry;
+import org.hillhouse.searchdb.models.wal.entries.WalStateEntry;
+import org.hillhouse.searchdb.models.wal.enums.WALOperationType;
+import org.hillhouse.searchdb.models.wal.entries.WalEntry;
+import org.hillhouse.searchdb.models.wal.enums.WalCommitStatus;
+import org.hillhouse.searchdb.models.wal.enums.WalEntryType;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Slf4j
-public class LocalWalProcessor implements WalProcessor, EventPublisher, EventSubscriber<PersistToSSTableEndEvent> {
-    @Inject private DiskDao diskDao;
-    @Inject private IDDao localIDDao;
+public class LocalWalProcessor implements WalProcessor, CUDable<String, String>, EventPublisher {
 
-    @Inject private IDDao fileIDDao;
-    @Inject private EventManager eventManager;
     @Inject private DocumentQueue<WALQueueItem> documentQueue;
-    @Inject private Mapper<WalEntry, byte[]> toByteArrayMapper;
-    @Inject private Mapper<WalEntry, WALQueueItem> walItemMapper;
-    @Inject private Mapper<byte[], List<WalEntry>> fromByteArrayMapper;
+
+    private Map<String, EventSubscriber> subscribers ;
+    {
+        subscribers = new HashMap<>();
+        subscribers.put(PersistToSSTableBeginEvent.class.getSimpleName(), new PersistStartEventHandler());
+        subscribers.put(PersistToSSTableEndEvent.class.getSimpleName(), new PersistSuccessfulEventHandler());
+        subscribers.put(PersistToSSTableFailedEvent.class.getSimpleName(), new PersistFailedEventHandler());
+    }
 
     @Override
-    public void writeToWal(Document document, OperationType operationType) {
-        long id = localIDDao.getNextID();
-        WalEntry walEntry = createWalEntry(id, operationType, document);
-        boolean isWriteSuccess = writeToStore(walEntry);
-        handleWalWriteStatus(walEntry, isWriteSuccess);
+    public void insert(String key, String value) throws IOException {
+        WalDataEntry entry = createWALDataEntry(key, value, WALOperationType.INSERT);
+        writeToStore(entry);
+        handleWalWriteStatus(entry);
     }
+
+    @Override
+    public void update(String key, String value) throws IOException {
+        WalDataEntry entry = createWALDataEntry(key, value, WALOperationType.UPDATE);
+        writeToStore(entry);
+        handleWalWriteStatus(entry);
+    }
+
+    @Override
+    public void delete(String key) throws IOException {
+        WalDataEntry entry = createWALDataEntry(key, null, WALOperationType.DELETE);
+        writeToStore(entry);
+        handleWalWriteStatus(entry);
+    }
+
+    @Override
+    public void initialize() throws Exception {
+
+    }
+
+    @Override
+    public void destroy() throws Exception {
+
+    }
+
+    @Override
+    public String getPublisherID() {
+        return getClass().getSimpleName();
+    }
+
+    private WalDataEntry createWALDataEntry(String key, String value, WALOperationType operationType){
+        return WalDataEntry.builder().rowKey(key).value(value).operationType(operationType)
+                .entryType(WalEntryType.DATA).logID(localIDDao.getNextID()).build();
+    }
+
+    private WalStateEntry createWALStateEntry(WalCommitStatus commitStatus, int beginOffset, int endOffset){
+        return WalStateEntry.builder().logID(localIDDao.getNextID()).entryType(WalEntryType.COMMIT_STATE)
+                .beginOffset(beginOffset).endOffset(endOffset).commitStatus(commitStatus).build();
+    }
+
+    private void writeToStore(WalDataEntry walDataEntry) throws IOException{
+
+    }
+
+    private void writeToStore(WalStateEntry walEntry) throws IOException{
+
+        byte[] byteArray = toByteArrayMapper.map(walEntry);
+        try{
+            diskDao.writeAndSyncToLatest(byteArray);
+            return true;
+        } catch (IOException e) {
+            log.error(e.getMessage(), e);
+        }
+        return false;
+    }
+
+
+    private class PersistStartEventHandler implements EventSubscriber<PersistToSSTableBeginEvent>{
+        @Override
+        public void onEvent(PersistToSSTableBeginEvent event) {
+            WalStateEntry entry = createWALStateEntry(WalCommitStatus.COMMIT_BEGIN, event.getBeginLogID(), event.getEndLogID());
+            writeToStore(entry);
+        }
+    }
+
+    private class PersistSuccessfulEventHandler implements EventSubscriber<PersistToSSTableEndEvent>{
+        @Override
+        public void onEvent(PersistToSSTableEndEvent event) {
+            WalStateEntry entry = createWALStateEntry(WalCommitStatus.COMMIT_END, event.getBeginLogID(), event.getEndLogID());
+            writeToStore(entry);
+        }
+    }
+
+    private class PersistFailedEventHandler implements EventSubscriber<PersistToSSTableFailedEvent>{
+          @Override
+         public void onEvent(PersistToSSTableFailedEvent event) {
+            WalStateEntry entry = createWALStateEntry(WalCommitStatus.COMMIT_FAILED, event.getBeginLogID(), event.getEndLogID());
+            writeToStore(entry);
+        }
+    }
+
+
+
+
 
     @Override
     public void recoverWal() {
@@ -59,66 +147,34 @@ public class LocalWalProcessor implements WalProcessor, EventPublisher, EventSub
         }
     }
 
-    @Override
-    public void initialize() throws Exception {
-        eventManager.subscribeToEvent(this, PersistToSSTableEndEvent.class.getSimpleName());
-        diskDao.initialize();
-    }
-
-    @Override
-    public void destroy() throws Exception {
-        eventManager.unsubscribeToEvent(this, PersistToSSTableEndEvent.class.getSimpleName());
-        diskDao.destroy();
-    }
-
-    @Override
-    public String getPublisherID() {
-        return "WalProcessor";
-    }
 
     @Override
     public void onEvent(PersistToSSTableEndEvent event) {
-        WalEntry walEntry = WalEntry.builder().status(WalStatus.COMMIT_END).build();
+        WalEntry walEntry = WalEntry.builder().status(WalCommitStatus.COMMIT_END).build();
         writeToStore(walEntry);
     }
 
-    private void handleWalWriteStatus(WalEntry walEntry, boolean isSuccess){
-        if (isSuccess){
-            handleWalWriteSuccess(walEntry);
-        }else {
-            handleWalWriteFailed(walEntry);
-        }
+    private void handleWalWriteStatus(WalEntry walEntry){
+        handleWalWriteSuccess(walEntry);
     }
 
     private void handleWalWriteSuccess(WalEntry walEntry){
         WALQueueItem walQueueItem = walItemMapper.map(walEntry);
         documentQueue.push(walQueueItem);
-        DocumentWaldEvent event = new DocumentWaldEvent(walEntry.getId());
+        DocumentWaldEvent event = new DocumentWaldEvent(walEntry.getLogID());
         eventManager.publishEvent(this, event);
     }
 
     private void handleWalWriteFailed(WalEntry walEntry){
-        DocumentWaldEvent event = new DocumentWaldEvent(walEntry.getId());
+        DocumentWaldEvent event = new DocumentWaldEvent(walEntry.getLogID());
         eventManager.publishEvent(this, event);
     }
 
-    private boolean writeToStore(WalEntry walEntry) {
-        byte[] byteArray = toByteArrayMapper.map(walEntry);
-        try{
-            diskDao.writeAndSyncToLatest(byteArray);
-            return true;
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-        return false;
-    }
 
-    private WalEntry createWalEntry(long id, OperationType operationType, Document document) {
-        return WalEntry.builder().id(id).operationType(operationType).document(document)
-                .localTimestamp(System.currentTimeMillis()).build();
-    }
+
+
     private void handleWAlRecovered(List<WalEntry> walEntries) throws Exception {
-        WalStatus walStatus = getWalStatus(walEntries);
+        WalCommitStatus walStatus = getWalStatus(walEntries);
         switch (walStatus){
             case COMMIT_END:
                 createNewWal();
@@ -145,7 +201,7 @@ public class LocalWalProcessor implements WalProcessor, EventPublisher, EventSub
         eventManager.publishEvent(this, event);
     }
 
-    private WalStatus getWalStatus(List<WalEntry> walEntries){
+    private WalCommitStatus getWalStatus(List<WalEntry> walEntries){
         WalEntry lastEntry = walEntries.get(walEntries.size() - 1);
         return lastEntry.getStatus();
     }
@@ -158,4 +214,5 @@ public class LocalWalProcessor implements WalProcessor, EventPublisher, EventSub
         Event event = new WalRecoveryFailedEvent();
         eventManager.publishEvent(this, event);
     }
+
 }

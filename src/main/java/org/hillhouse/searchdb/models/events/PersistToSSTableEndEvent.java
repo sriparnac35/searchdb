@@ -14,6 +14,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class PersistToSSTableEndEvent extends Event{
     private String ssTableName;
     private String walID;
-    private AtomicInteger beginLogID;
-    private AtomicInteger endLogID;
+    private int beginLogID;
+    private int endLogID;
 }
