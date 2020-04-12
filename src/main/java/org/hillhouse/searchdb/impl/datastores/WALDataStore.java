@@ -74,7 +74,7 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
         while (currentOffset < data.length){
             WalEntryType entryType = deriveEntryTypeFromByte(data[currentOffset + WalConstants.OFFSET_ENTRY_TYPE]);
             Pair<WalEntry, Integer> extractedValue = (entryType == WalEntryType.DATA) ? extractDataValueFromByteArray(data, currentOffset) :
-                    extractDataValueFromByteArray(data, currentOffset);
+                    extractStateValueFromByteArray(data, currentOffset);
             walValues.add(extractedValue.getKey());
             currentOffset += extractedValue.getValue();
         }
@@ -82,10 +82,9 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
     }
 
     private void writeDataToStore(int logID, WalDataKey key, WalDataValue value, WALOperationType operationType) throws IOException {
-        int headerLength = WalConstants.HEADER_LENGTH_DATA;
         byte[] valueBytes = value.getValue().getBytes();
         int valueLength = (operationType == WALOperationType.DELETE ) ? 0 : valueBytes.length;
-        byte[] bytes = new byte[headerLength + valueLength];
+        byte[] bytes = new byte[WalConstants.HEADER_LENGTH_DATA + valueLength];
 
         System.arraycopy(BigInteger.valueOf(logID).toByteArray(), 0, bytes, WalConstants.OFFSET_LOG_ID, WalConstants.LENGTH_LOG_ID);
         bytes[WalConstants.OFFSET_ENTRY_TYPE] = WalConstants.VALUE_ENTRY_TYPE_DATA;
@@ -113,10 +112,9 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
         WalCommitStatus commitStatus = deriveCommitStatusFromFlag(data[OFFSET_COMMIT_STATE]);
         int beginOffset = new BigInteger(Arrays.copyOfRange(data, currentOffset + OFFSET_BEGIN_OFFSET, currentOffset + WalConstants.OFFSET_BEGIN_OFFSET + LENGTH_BEGIN_OFFSET)).intValue();
         int endOffset = new BigInteger(Arrays.copyOfRange(data, currentOffset + OFFSET_END_OFFSET, currentOffset + WalConstants.OFFSET_END_OFFSET + WalConstants.LENGTH_END_OFFSET)).intValue();
-        WalEntry value = WalStateEntry.builder().commitStatus(commitStatus).beginOffset(beginOffset)
-                .endOffset(endOffset).logID(logID).entryType(WalEntryType.COMMIT_STATE).entryType(WalEntryType.COMMIT_STATE).build();
-        int bytesRead = HEADER_LENGTH_STATE;
-        return new Pair<>(value, bytesRead);
+        WalEntry value = WalStateEntry.builder().commitStatus(commitStatus).beginOffset(beginOffset).endOffset(endOffset)
+                .logID(logID).entryType(WalEntryType.COMMIT_STATE).entryType(WalEntryType.COMMIT_STATE).walID(FILE_NAME).build();
+        return new Pair<>(value, HEADER_LENGTH_STATE);
     }
 
     private Pair<WalEntry, Integer> extractStateValueFromByteArray(byte[] data, int currentOffset){
@@ -128,7 +126,7 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
 
         int bytesRead = HEADER_LENGTH_DATA + dataLength;
         WalEntry walEntry = WalDataEntry.builder().logID(logID).rowKey(rowKey).operationType(operationType)
-                .entryType(WalEntryType.DATA).value(dataValue).build();
+                .entryType(WalEntryType.DATA).value(dataValue).walID(FILE_NAME).build();
         return new Pair<>(walEntry, bytesRead);
     }
 

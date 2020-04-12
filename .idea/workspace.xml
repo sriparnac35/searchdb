@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/enums/WalEntryType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalWalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalWalProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/dao/IDDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/dao/IDDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/processors/WalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/processors/WalProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableEndEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableEndEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/input/Document.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/input/OperationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/enums/WALOperationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WALQueueItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalEntryType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/enums/WalCommitStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalDataEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalDataEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalEntry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +119,7 @@
       <workItem from="1585468161561" duration="13145000" />
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
-      <workItem from="1586598314555" duration="10914000" />
+      <workItem from="1586598314555" duration="11581000" />
     </task>
     <servers />
   </component>

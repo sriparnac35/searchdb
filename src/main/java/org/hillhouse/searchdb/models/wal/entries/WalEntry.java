@@ -15,6 +15,7 @@ import java.io.Serializable;
 @Data
 @SuperBuilder
 public class WalEntry implements Serializable {
+    private String walID;
     private int logID;
     private WalEntryType entryType;
 }

@@ -10,6 +10,7 @@ import org.hillhouse.searchdb.interfaces.utilities.DocumentQueue;
 import org.hillhouse.searchdb.models.events.DocumentWaldEvent;
 import org.hillhouse.searchdb.models.memory.MemTableDataKey;
 import org.hillhouse.searchdb.models.memory.MemTableDataValue;
+import org.hillhouse.searchdb.models.wal.entries.WalDataEntry;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -19,7 +20,7 @@ import java.util.Map;
 @Slf4j
 public class MemtableSourceWrapper implements Initializable {
     @Inject private EventManager eventManager;
-    @Inject private DocumentQueue<WALQueueItem> documentQueue;
+    @Inject private DocumentQueue<WalDataEntry> documentQueue;
     @Inject private MemTableDataStore dataStore;
 
     private Map<String, EventSubscriber> eventSubscribers ;
@@ -43,7 +44,7 @@ public class MemtableSourceWrapper implements Initializable {
     private class DocumentWaldEventHandler implements EventSubscriber<DocumentWaldEvent>{
         @Override
         public void onEvent(DocumentWaldEvent event) {
-            WALQueueItem walQueueItem = documentQueue.getNext();
+            WalDataEntry walQueueItem = documentQueue.getNext();
             MemTableDataKey dataKey = MemTableDataKey.builder().walID(walQueueItem.getWalID())
                     .logID(walQueueItem.getLogID()).rowKey(walQueueItem.getRowKey()).build();
             try{
@@ -58,7 +59,7 @@ public class MemtableSourceWrapper implements Initializable {
                         dataStore.delete(dataKey);
                         break;
                 }
-                documentQueue.ack(Collections.singletonList(walQueueItem.getId()));
+                documentQueue.ack(Collections.singletonList(walQueueItem.getLogID()));
             } catch (IOException e) {
                 log.error(e.getMessage());
             }
