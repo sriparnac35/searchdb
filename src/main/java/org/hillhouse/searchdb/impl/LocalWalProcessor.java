@@ -107,29 +107,7 @@ public class LocalWalProcessor implements WalProcessor, CUDable<String, String>,
     }
 
 
-    private class PersistStartEventHandler implements EventSubscriber<PersistToSSTableBeginEvent>{
-        @Override
-        public void onEvent(PersistToSSTableBeginEvent event) {
-            WalStateEntry entry = createWALStateEntry(WalCommitStatus.COMMIT_BEGIN, event.getBeginLogID(), event.getEndLogID());
-            writeToStore(entry);
-        }
-    }
 
-    private class PersistSuccessfulEventHandler implements EventSubscriber<PersistToSSTableEndEvent>{
-        @Override
-        public void onEvent(PersistToSSTableEndEvent event) {
-            WalStateEntry entry = createWALStateEntry(WalCommitStatus.COMMIT_END, event.getBeginLogID(), event.getEndLogID());
-            writeToStore(entry);
-        }
-    }
-
-    private class PersistFailedEventHandler implements EventSubscriber<PersistToSSTableFailedEvent>{
-          @Override
-         public void onEvent(PersistToSSTableFailedEvent event) {
-            WalStateEntry entry = createWALStateEntry(WalCommitStatus.COMMIT_FAILED, event.getBeginLogID(), event.getEndLogID());
-            writeToStore(entry);
-        }
-    }
 
 
 

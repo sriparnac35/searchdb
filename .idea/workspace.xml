@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalDataEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalDataEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalEntry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalWalProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalWalProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalDataKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalDataKey.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,7 @@
       <workItem from="1585468161561" duration="13145000" />
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
-      <workItem from="1586598314555" duration="11581000" />
+      <workItem from="1586598314555" duration="12567000" />
     </task>
     <servers />
   </component>
@@ -127,10 +124,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586672143315">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586678797712">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586672143315" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586678797712" />
     <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1586559956951">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

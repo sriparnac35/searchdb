@@ -15,6 +15,7 @@ import org.hillhouse.searchdb.models.diskDS.SSTableDataValue;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataValueItem;
 import org.hillhouse.searchdb.models.events.*;
 import org.hillhouse.searchdb.impl.datastores.MemTableDataStore;
+import org.hillhouse.searchdb.models.memory.Memtable;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -54,22 +55,22 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
         return this.getClass().getSimpleName();
     }
 
-    private void notifySSTableCreationStated(MemTableDataStore memTable){
+    private void notifySSTableCreationStated(Memtable memTable){
         PersistToSSTableBeginEvent event = PersistToSSTableBeginEvent.builder().walID(memTable.getWalID())
-                .beginLogID(memTable.getBeginLogID().get()).endLogID(memTable.getEndLogID().get()).build();
+                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
         eventManager.publishEvent(this, event);
     }
 
-    private void notifyNewSSTableCreated(MemTableDataStore memTable, String ssTable){
+    private void notifyNewSSTableCreated(Memtable memTable, String ssTable){
         PersistToSSTableEndEvent persistToSSTableEndEvent = PersistToSSTableEndEvent.builder()
                 .ssTableName(ssTable).walID(memTable.getWalID())
                 .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
         eventManager.publishEvent(this, persistToSSTableEndEvent);
     }
 
-    private void notifySSTableCreationFailed(MemTableDataStore memTable){
+    private void notifySSTableCreationFailed(Memtable memTable){
         PersistToSSTableFailedEvent event = PersistToSSTableFailedEvent.builder().walID(memTable.getWalID())
-                .beginLogID(memTable.getBeginLogID().get()).endLogID(memTable.getEndLogID().get()).build();
+                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
         eventManager.publishEvent(this, event);
     }
 
@@ -110,7 +111,7 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
 
     @AllArgsConstructor
     private class SSTableCreateRunnable implements Runnable{
-        private MemTableDataStore memTable;
+        private Memtable memTable;
 
         @Override
         public void run() {
@@ -127,16 +128,16 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
 
         private SSTableDataKey createKey(){
             return SSTableDataKey.builder().walID(memTable.getWalID())
-                    .tableIdentifier(String.valueOf(idDao.getNextID())).startID(memTable.getBeginLogID().get())
-                    .endID(memTable.getEndLogID().get()).build();
+                    .tableIdentifier(String.valueOf(idDao.getNextID())).startID(memTable.getBeginLogID())
+                    .endID(memTable.getEndLogID()).build();
         }
 
         private SSTableDataValue createValue(){
-            List<SSTableDataValueItem> dataValueItems = memTable.getDataItemList().stream().map(this::map).collect(Collectors.toList());
+            List<SSTableDataValueItem> dataValueItems = memTable.readAll().stream().map(this::map).collect(Collectors.toList());
             return SSTableDataValue.builder().dataValueItems(dataValueItems).build();
         }
 
-        private SSTableDataValueItem map(MemTableDataStore.DataItem data){
+        private SSTableDataValueItem map(Memtable.DataItem data){
             return SSTableDataValueItem.builder().rowKey(data.getRowID()).isDeleted(data.isDeleted())
                     .value(data.getValue()).build();
         }
