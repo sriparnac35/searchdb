@@ -10,6 +10,7 @@ import org.hillhouse.searchdb.models.events.MemTableAvailableForSinkEvent;
 import org.hillhouse.searchdb.models.events.PersistToSSTableEndEvent;
 import org.hillhouse.searchdb.models.events.PersistToSSTableFailedEvent;
 import org.hillhouse.searchdb.models.memory.Memtable;
+import org.hillhouse.searchdb.models.wrappers.CurrentMemtableWrapper;
 
 import java.util.HashMap;
 import java.util.Map;

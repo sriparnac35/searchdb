@@ -11,6 +11,7 @@ import org.hillhouse.searchdb.models.wal.enums.WalEntryType;
 @Builder
 @Data
 public class WalDataKey {
-    private String walID;
+    private String id;
+    private int logID;
     private WalEntryType entryType;
 }

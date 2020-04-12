@@ -3,7 +3,7 @@ package org.hillhouse.searchdb.impl.datastores;
 import com.google.inject.Inject;
 import lombok.*;
 import org.hillhouse.searchdb.constants.MemtableConstants;
-import org.hillhouse.searchdb.impl.eventHandlers.CurrentMemtableWrapper;
+import org.hillhouse.searchdb.models.wrappers.CurrentMemtableWrapper;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventPublisher;
 import org.hillhouse.searchdb.interfaces.processors.DataStore;

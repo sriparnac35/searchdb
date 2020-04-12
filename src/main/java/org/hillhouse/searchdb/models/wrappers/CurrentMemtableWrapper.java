@@ -1,4 +1,4 @@
-package org.hillhouse.searchdb.impl.eventHandlers;
+package org.hillhouse.searchdb.models.wrappers;
 
 import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
@@ -21,6 +21,6 @@ public class CurrentMemtableWrapper {
         if (currentMemtable != null){
             oldTables.addLast(currentMemtable);
         }
-        currentMemtable = new Memtable(idDao.getNextID());
+        currentMemtable = new Memtable(idDao.getNextID().get());
     }
 }

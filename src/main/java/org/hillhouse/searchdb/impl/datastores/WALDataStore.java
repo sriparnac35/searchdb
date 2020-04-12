@@ -28,20 +28,19 @@ import static org.hillhouse.searchdb.constants.WalConstants.*;
 public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKey, WalSearchValue> {
     private static final String FILE_NAME = "./wal";
     @Inject private DiskDao diskDao;
-    @Inject private IDDao idDao;
 
     @Override
     public void insert(WalDataKey key, WalValue value) throws IOException {
         switch (key.getEntryType()){
-            case DATA: writeDataToStore(idDao.getNextID().get(), key, (WalDataValue) value, WALOperationType.INSERT); break;
-            case COMMIT_STATE: writeStateToStore(idDao.getNextID().get(), key, (WalStateValue) value); break;
+            case DATA: writeDataToStore(key.getLogID(), key, (WalDataValue) value, WALOperationType.INSERT); break;
+            case COMMIT_STATE: writeStateToStore(key.getLogID(), key, (WalStateValue) value); break;
         }
     }
 
     @Override
     public void update(WalDataKey key, WalValue value) throws IOException {
         switch (key.getEntryType()){
-            case DATA: writeDataToStore(idDao.getNextID().get(), key, (WalDataValue) value, WALOperationType.UPDATE);
+            case DATA: writeDataToStore(key.getLogID(), key, (WalDataValue) value, WALOperationType.UPDATE);
             default: throw new UnsupportedOperationException("wal update supported only for data");
         }
     }
@@ -49,7 +48,7 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
     @Override
     public void delete(WalDataKey key) throws IOException {
         switch (key.getEntryType()){
-            case DATA: writeDataToStore(idDao.getNextID().get(), key, null, WALOperationType.DELETE);
+            case DATA: writeDataToStore(key.getLogID(), key, null, WALOperationType.DELETE);
             default: throw new UnsupportedOperationException("wal delete item supported only for data");
         }
     }
@@ -82,13 +81,13 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
     }
 
     private void writeDataToStore(int logID, WalDataKey key, WalDataValue value, WALOperationType operationType) throws IOException {
-        byte[] valueBytes = value.getValue().getBytes();
+        byte[] valueBytes = (value != null) ? value.getValue().getBytes() : new byte[0];
         int valueLength = (operationType == WALOperationType.DELETE ) ? 0 : valueBytes.length;
         byte[] bytes = new byte[WalConstants.HEADER_LENGTH_DATA + valueLength];
 
         System.arraycopy(BigInteger.valueOf(logID).toByteArray(), 0, bytes, WalConstants.OFFSET_LOG_ID, WalConstants.LENGTH_LOG_ID);
         bytes[WalConstants.OFFSET_ENTRY_TYPE] = WalConstants.VALUE_ENTRY_TYPE_DATA;
-        System.arraycopy(value.getRowKey().getBytes(), 0, bytes, WalConstants.OFFSET_ROW_KEY - value.getRowKey().length(), value.getRowKey().length());
+        System.arraycopy(key.getId().getBytes(), 0, bytes, WalConstants.OFFSET_ROW_KEY - key.getId().length(), key.getId().length());
         bytes[WalConstants.OFFSET_OPERATION_TYPE] = deriveOperationTypeFlag(operationType);
         System.arraycopy(BigInteger.valueOf(valueLength).toByteArray(), 0, bytes, WalConstants.OFFSET_VALUE_LENGTH, WalConstants.LENGTH_VALUE_LENGTH);
         System.arraycopy(valueBytes, 0, bytes, WalConstants.OFFSET_VALUE, valueLength);
