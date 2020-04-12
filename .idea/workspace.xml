@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalFileDiskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalFileDiskDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/WalRecoveryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/WalRecoveryWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/WalWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/WalWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/dao/IDDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/dao/IDDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wrappers/CurrentMemtableWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wrappers/CurrentMemtableWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/hillhouse/searchdb/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +116,7 @@
       <workItem from="1585468161561" duration="13145000" />
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
-      <workItem from="1586598314555" duration="19886000" />
+      <workItem from="1586598314555" duration="20175000" />
     </task>
     <servers />
   </component>
@@ -161,22 +148,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586686853539" />
-    <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1580367367772">
+    <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1586707602985">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1580367367772" />
-    <state width="1400" height="244" key="GridCell.Tab.0.center" timestamp="1580367367771">
+    <state width="1400" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586707602985" />
+    <state width="1400" height="244" key="GridCell.Tab.0.center" timestamp="1586707602972">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1580367367771" />
-    <state width="1400" height="244" key="GridCell.Tab.0.left" timestamp="1580367367769">
+    <state width="1400" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586707602972" />
+    <state width="1400" height="244" key="GridCell.Tab.0.left" timestamp="1586707602969">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1580367367769" />
-    <state width="1400" height="244" key="GridCell.Tab.0.right" timestamp="1580367367771">
+    <state width="1400" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586707602969" />
+    <state width="1400" height="244" key="GridCell.Tab.0.right" timestamp="1586707602982">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1580367367771" />
+    <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586707602982" />
     <state x="208" y="31" key="SettingsEditor" timestamp="1586598216926">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

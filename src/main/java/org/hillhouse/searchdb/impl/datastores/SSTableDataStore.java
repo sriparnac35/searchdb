@@ -1,6 +1,8 @@
 package org.hillhouse.searchdb.impl.datastores;
 
+import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.hillhouse.searchdb.constants.SSTableConstants;
 import org.hillhouse.searchdb.interfaces.dao.DiskDao;
@@ -18,10 +20,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataValue, SSTableSearchKey, SSTableDataValue> {
     private static final String FILE_PREFIX = "ss_";
-    private final DiskDao diskDao;
+    @Inject private DiskDao diskDao;
 
     @Override
     public void insert(SSTableDataKey key, SSTableDataValue value) throws IOException {

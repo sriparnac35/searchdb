@@ -2,6 +2,7 @@ package org.hillhouse.searchdb.impl.datastores;
 
 import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.hillhouse.searchdb.constants.MemtableConstants;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventPublisher;
@@ -14,15 +15,10 @@ import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
+@NoArgsConstructor
 public class MemTableDataStore implements EventPublisher, DataStore<MemTableDataKey, MemTableDataValue, MemTableDataKey, MemtableSearchValue> {
-    @Inject private EventManager eventManager;
     @Inject private CurrentMemtableWrapper memtableWrapper;
     private ExecutorService executorService;
-
-    public MemTableDataStore(EventManager eventManager) {
-        this.eventManager = eventManager;
-    }
 
     @Override
     public void initialize() throws Exception {
