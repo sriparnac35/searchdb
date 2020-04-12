@@ -17,7 +17,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey, SSTableSearchKey> {
-    @Inject private SSTableDataStore dataStore;
+    @Inject
+    private SSTableDataStore dataStore;
 
     private List<Index> indexList;
 
@@ -50,12 +51,12 @@ public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey
     @Override
     public SSTableSearchKey search(IndexSearchKey key) throws IOException {
         int nextOffset = (key.getLastSearchedOffset() == -1) ? indexList.size() - 1 : key.getLastSearchedOffset() - 1;
-        if (nextOffset < 0){
+        if (nextOffset < 0) {
             return null;
         }
         Index indexToSearch = indexList.get(nextOffset);
         Pair<Integer, Integer> offsets = indexToSearch.dataSearchRange(key.getKey());
-        return (offsets == null) ? search(IndexSearchKey.builder().key(key.getKey()).lastSearchedOffset(nextOffset).build()):
+        return (offsets == null) ? search(IndexSearchKey.builder().key(key.getKey()).lastSearchedOffset(nextOffset).build()) :
                 SSTableSearchKey.builder().startOffset(offsets.getKey()).endOffset(offsets.getValue()).ssTableName(indexToSearch.getSsTable()).build();
     }
 

@@ -21,8 +21,10 @@ import java.util.concurrent.TimeUnit;
 import static org.hillhouse.searchdb.constants.MemtableConstants.MEMTABLE_SINK_INTERVAL_IN_SEC;
 
 public class MemtableSinkWrapper implements EventPublisher, Initializable {
-    @Inject private CurrentMemtableWrapper memtableWrapper;
-    @Inject private EventManager eventManager;
+    @Inject
+    private CurrentMemtableWrapper memtableWrapper;
+    @Inject
+    private EventManager eventManager;
 
     private Map<String, EventSubscriber> eventSubscribers;
     private ScheduledExecutorService sinkExecutorService;
@@ -52,11 +54,11 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
         return MemtableSinkWrapper.class.getSimpleName();
     }
 
-    private void addEventSubscribers(){
+    private void addEventSubscribers() {
         eventSubscribers.forEach((key, value) -> eventManager.subscribeToEvent(value, key));
     }
 
-    private void removeEventSubscribers(){
+    private void removeEventSubscribers() {
         eventSubscribers.forEach((key, value) -> eventManager.unsubscribeToEvent(value, key));
     }
 
@@ -68,7 +70,7 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
         }
     }
 
-    public class MemtableSinkedFailedEventHandler implements EventSubscriber<PersistToSSTableFailedEvent>{
+    public class MemtableSinkedFailedEventHandler implements EventSubscriber<PersistToSSTableFailedEvent> {
 
         @Override
         public void onEvent(PersistToSSTableFailedEvent event) {
@@ -77,7 +79,7 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
     }
 
     @AllArgsConstructor
-    private class MemtableSinkSuccessRunnable implements Runnable{
+    private class MemtableSinkSuccessRunnable implements Runnable {
         private PersistToSSTableEndEvent event;
 
         @Override
@@ -88,7 +90,7 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
     }
 
     @AllArgsConstructor
-    private class MemtableSinkFailedRunnable implements Runnable{
+    private class MemtableSinkFailedRunnable implements Runnable {
         private PersistToSSTableFailedEvent event;
 
         @Override
@@ -98,19 +100,19 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
     }
 
 
-    private class PublishMemtableForSinkRunnable implements Runnable{
+    private class PublishMemtableForSinkRunnable implements Runnable {
         @Override
         public void run() {
-            if (!isSinkInProgress){
+            if (!isSinkInProgress) {
                 Memtable memtable = memtableWrapper.getOldTables().peek();
-                if (memtable != null){
+                if (memtable != null) {
                     isSinkInProgress = true;
                     notifyMemtableAvailableForSink(memtable);
                 }
             }
         }
 
-        private void notifyMemtableAvailableForSink(Memtable memtable){
+        private void notifyMemtableAvailableForSink(Memtable memtable) {
             MemTableAvailableForSinkEvent event = MemTableAvailableForSinkEvent.builder().memTable(memtable).build();
             eventManager.publishEvent(MemtableSinkWrapper.this, event);
         }

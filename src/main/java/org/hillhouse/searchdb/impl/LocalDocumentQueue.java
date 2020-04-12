@@ -32,7 +32,7 @@ public class LocalDocumentQueue<T extends QueueItem> implements DocumentQueue<T>
 
     @Override
     public void ack(List<Integer> ids) {
-        ids.forEach(item -> queue.remove((int)item));
+        ids.forEach(item -> queue.remove((int) item));
     }
 
     @Override

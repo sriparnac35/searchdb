@@ -19,11 +19,14 @@ import java.util.Map;
 
 @Slf4j
 public class MemtableSourceWrapper implements Initializable {
-    @Inject private EventManager eventManager;
-    @Inject private DocumentQueue<WalDataEntry> documentQueue;
-    @Inject private MemTableDataStore dataStore;
+    @Inject
+    private EventManager eventManager;
+    @Inject
+    private DocumentQueue<WalDataEntry> documentQueue;
+    @Inject
+    private MemTableDataStore dataStore;
 
-    private Map<String, EventSubscriber> eventSubscribers ;
+    private Map<String, EventSubscriber> eventSubscribers;
 
     {
         eventSubscribers = new HashMap<>();
@@ -41,14 +44,14 @@ public class MemtableSourceWrapper implements Initializable {
         eventSubscribers.forEach((key, value) -> eventManager.unsubscribeToEvent(value, key));
     }
 
-    private class DocumentWaldEventHandler implements EventSubscriber<DocumentWaldEvent>{
+    private class DocumentWaldEventHandler implements EventSubscriber<DocumentWaldEvent> {
         @Override
         public void onEvent(DocumentWaldEvent event) {
             WalDataEntry walQueueItem = documentQueue.getNext();
             MemTableDataKey dataKey = MemTableDataKey.builder().walID(walQueueItem.getWalID())
                     .logID(walQueueItem.getLogID()).rowKey(walQueueItem.getRowKey()).build();
-            try{
-                switch (walQueueItem.getOperationType()){
+            try {
+                switch (walQueueItem.getOperationType()) {
                     case INSERT:
                         dataStore.insert(dataKey, MemTableDataValue.builder().value(walQueueItem.getValue()).build());
                         break;

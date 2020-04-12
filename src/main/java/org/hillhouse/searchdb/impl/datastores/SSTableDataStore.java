@@ -5,7 +5,10 @@ import lombok.RequiredArgsConstructor;
 import org.hillhouse.searchdb.constants.SSTableConstants;
 import org.hillhouse.searchdb.interfaces.dao.DiskDao;
 import org.hillhouse.searchdb.interfaces.processors.DataStore;
-import org.hillhouse.searchdb.models.diskDS.*;
+import org.hillhouse.searchdb.models.diskDS.SSTableDataKey;
+import org.hillhouse.searchdb.models.diskDS.SSTableDataValue;
+import org.hillhouse.searchdb.models.diskDS.SSTableDataValueItem;
+import org.hillhouse.searchdb.models.diskDS.SSTableSearchKey;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -23,12 +26,12 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
 
 
     @Override
-    public void insert(SSTableDataKey key, SSTableDataValue value) throws IOException{
+    public void insert(SSTableDataKey key, SSTableDataValue value) throws IOException {
         createNewSSTable(key, value);
     }
 
     @Override
-    public void update(SSTableDataKey key, SSTableDataValue value) throws IOException{
+    public void update(SSTableDataKey key, SSTableDataValue value) throws IOException {
         throw new UnsupportedOperationException("update not supported in SSTables");
     }
 
@@ -48,20 +51,20 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
     }
 
     @Override
-    public SSTableDataValue search(SSTableSearchKey key) throws IOException{
+    public SSTableDataValue search(SSTableSearchKey key) throws IOException {
         String ssTableName = deriveSSTableNameForKey(key);
         byte[] bytes = diskDao.getData(ssTableName, key.getStartOffset(), key.getEndOffset());
         return new SSTableDataValue(extractValueItemFromOffset(bytes));
     }
 
-    private List<SSTableDataValueItem> extractValueItemFromOffset(byte[] bytes){
+    private List<SSTableDataValueItem> extractValueItemFromOffset(byte[] bytes) {
         List<SSTableDataValueItem> result = new ArrayList<>();
         int currentIndex = 0;
-        while(currentIndex < bytes.length){
+        while (currentIndex < bytes.length) {
             String rowKey = new String(Arrays.copyOfRange(bytes, currentIndex + SSTableConstants.OFFSET_ROW_ID, SSTableConstants.MAX_ROW_ID_LENGTH));
             byte flag = bytes[currentIndex + SSTableConstants.OFFSET_ROW_FLAG];
-            int length = new BigInteger(Arrays.copyOfRange(bytes,currentIndex + SSTableConstants.OFFSET_ROW_VALUE_LENGTH, SSTableConstants.MAX_ROW_ID_LENGTH)).intValue();
-            if (flag != SSTableConstants.FLAG_DELETED){
+            int length = new BigInteger(Arrays.copyOfRange(bytes, currentIndex + SSTableConstants.OFFSET_ROW_VALUE_LENGTH, SSTableConstants.MAX_ROW_ID_LENGTH)).intValue();
+            if (flag != SSTableConstants.FLAG_DELETED) {
                 String value = new String(Arrays.copyOfRange(bytes, currentIndex + SSTableConstants.OFFSET_ROW_VALUE_DATA, length));
                 SSTableDataValueItem v = SSTableDataValueItem.builder().rowKey(rowKey).value(value).build();
                 result.add(v);
@@ -71,14 +74,14 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
         return result;
     }
 
-    private void createNewSSTable(SSTableDataKey key, SSTableDataValue value) throws IOException{
+    private void createNewSSTable(SSTableDataKey key, SSTableDataValue value) throws IOException {
         createNewSSTableForKey(key);
         List<RowObject> data = value.getDataValueItems().stream().map(this::createRowPayload).collect(Collectors.toList());
         byte[] wrappedRowData = wrapRowData(data);
         diskDao.writeAndSyncToLatest(wrappedRowData);
     }
 
-    private byte[] wrapRowData(List<RowObject> data){
+    private byte[] wrapRowData(List<RowObject> data) {
         int totalSize = deriveSizeForSSTable(data);
         ByteBuffer byteBuffer = ByteBuffer.allocate(totalSize);
         byteBuffer.put(SSTableConstants.START_BYTE);
@@ -87,25 +90,26 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
         return byteBuffer.array();
     }
 
-    private int deriveSizeForSSTable(List<RowObject> data){
+    private int deriveSizeForSSTable(List<RowObject> data) {
         int dataSize = data.stream().map(item -> item.length).reduce(0, Integer::sum);
         return SSTableConstants.HEADER_SIZE_BYTES + SSTableConstants.TAIL_SIZE_BYTES + dataSize;
     }
 
-    private void createNewSSTableForKey(SSTableDataKey key) throws IOException{
+    private void createNewSSTableForKey(SSTableDataKey key) throws IOException {
         String fileName = deriveSSTableNameForKey(key);
         diskDao.createWithName(fileName);
         diskDao.makeCurrent(fileName);
     }
 
-    private String deriveSSTableNameForKey(SSTableDataKey key){
+    private String deriveSSTableNameForKey(SSTableDataKey key) {
         return FILE_PREFIX + key.getTableIdentifier();
     }
-    private String deriveSSTableNameForKey(SSTableSearchKey key){
+
+    private String deriveSSTableNameForKey(SSTableSearchKey key) {
         return FILE_PREFIX + key.getSsTableName();
     }
 
-    private RowObject createRowPayload(SSTableDataValueItem dataItem){
+    private RowObject createRowPayload(SSTableDataValueItem dataItem) {
         String rowKey = dataItem.getRowKey();
         byte[] dataAsBytes = dataItem.isDeleted() ? new byte[0] : dataItem.getValue().getBytes();
         byte[] finalData = new byte[SSTableConstants.ROW_HEADER_SIZE_BYTES + dataAsBytes.length];
@@ -118,8 +122,8 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
     }
 
     @AllArgsConstructor
-    private static final class RowObject{
-        byte[] data ;
+    private static final class RowObject {
+        byte[] data;
         int length;
     }
 }

@@ -21,10 +21,10 @@ public class WalConstants {
 
     public static final int OFFSET_END_OFFSET = 10;
     public static final int LENGTH_END_OFFSET = 4;
-    
+
     public static final int HEADER_LENGTH_STATE = LENGTH_LOG_ID + LENGTH_ENTRY_TYPE + LENGTH_COMMIT_STATE +
             LENGTH_BEGIN_OFFSET + LENGTH_END_OFFSET;
-    
+
 
     // constants for entry type data :
     public static final int OFFSET_ROW_KEY = 5;

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class PersistToSSTableBeginEvent extends Event{
+public class PersistToSSTableBeginEvent extends Event {
     private String walID;
     private int beginLogID;
     private int endLogID;

@@ -11,7 +11,6 @@ import org.hillhouse.searchdb.interfaces.dao.IDDao;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventPublisher;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventSubscriber;
-import org.hillhouse.searchdb.interfaces.processors.WalProcessor;
 import org.hillhouse.searchdb.interfaces.utilities.DocumentQueue;
 import org.hillhouse.searchdb.models.events.PersistToSSTableBeginEvent;
 import org.hillhouse.searchdb.models.events.PersistToSSTableEndEvent;
@@ -34,14 +33,19 @@ import java.util.concurrent.Executors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WalWrapper implements Initializable, EventPublisher, CUDable<String, String> {
-    @Inject private EventManager eventManager;
-    @Inject private WALDataStore dataStore;
-    @Inject private IDDao idDao;
-    @Inject private DocumentQueue<WalDataEntry> documentQueue;
+    @Inject
+    private EventManager eventManager;
+    @Inject
+    private WALDataStore dataStore;
+    @Inject
+    private IDDao idDao;
+    @Inject
+    private DocumentQueue<WalDataEntry> documentQueue;
 
     private ExecutorService executorService;
 
     private Map<String, EventSubscriber> eventSubscribers = new HashMap<>();
+
     {
         eventSubscribers.put(PersistToSSTableBeginEvent.class.getSimpleName(), new PersistStartEventHandler());
         eventSubscribers.put(PersistToSSTableEndEvent.class.getSimpleName(), new PersistSuccessfulEventHandler());
@@ -86,24 +90,26 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
         WalDataKey walKey = WalDataKey.builder().entryType(WalEntryType.DATA).id(key).build();
         executorService.submit(new WALDeleteRunnable(walKey));
     }
-    private void onOperationComplete(WalDataKey dataKey, WalValue value, WALOperationType operationType){
-        if (value instanceof WalDataValue){
+
+    private void onOperationComplete(WalDataKey dataKey, WalValue value, WALOperationType operationType) {
+        if (value instanceof WalDataValue) {
             onDataOperationComplete(dataKey, (WalDataValue) value, operationType);
         }
     }
 
-    private void onDataOperationComplete(WalDataKey dataKey, WalDataValue value, WALOperationType operationType){
+    private void onDataOperationComplete(WalDataKey dataKey, WalDataValue value, WALOperationType operationType) {
         WalDataEntry dataEntry = WalDataEntry.builder().logID(dataKey.getLogID()).entryType(WalEntryType.DATA)
                 .rowKey(value.getRowKey()).value(value.getValue()).operationType(operationType).build();
         documentQueue.push(dataEntry);
     }
 
     @AllArgsConstructor
-    private class WAlInsertRunnable implements Runnable{
+    private class WAlInsertRunnable implements Runnable {
         private WalDataKey dataKey;
         private WalValue dataValue;
 
-        @SneakyThrows @Override
+        @SneakyThrows
+        @Override
         public void run() {
             dataKey.setLogID(idDao.getNextID().get());
             dataStore.insert(dataKey, dataValue);
@@ -112,11 +118,12 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
     }
 
     @AllArgsConstructor
-    private class WAlUpdateRunnable implements Runnable{
+    private class WAlUpdateRunnable implements Runnable {
         private WalDataKey dataKey;
         private WalValue dataValue;
 
-        @SneakyThrows @Override
+        @SneakyThrows
+        @Override
         public void run() {
             dataKey.setLogID(idDao.getNextID().get());
             dataStore.update(dataKey, dataValue);
@@ -125,10 +132,11 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
     }
 
     @AllArgsConstructor
-    private class WALDeleteRunnable implements Runnable{
+    private class WALDeleteRunnable implements Runnable {
         private WalDataKey dataKey;
 
-        @SneakyThrows @Override
+        @SneakyThrows
+        @Override
         public void run() {
             dataKey.setLogID(idDao.getNextID().get());
             dataStore.delete(dataKey);
@@ -137,7 +145,7 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
     }
 
 
-    private class PersistStartEventHandler implements EventSubscriber<PersistToSSTableBeginEvent>{
+    private class PersistStartEventHandler implements EventSubscriber<PersistToSSTableBeginEvent> {
         @Override
         public void onEvent(PersistToSSTableBeginEvent event) {
             WalDataKey key = WalDataKey.builder().entryType(WalEntryType.COMMIT_STATE).id(event.getWalID()).build();
@@ -157,7 +165,7 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
         }
     }
 
-    private class PersistFailedEventHandler implements EventSubscriber<PersistToSSTableFailedEvent>{
+    private class PersistFailedEventHandler implements EventSubscriber<PersistToSSTableFailedEvent> {
         @Override
         public void onEvent(PersistToSSTableFailedEvent event) {
             WalDataKey key = WalDataKey.builder().entryType(WalEntryType.COMMIT_STATE).id(event.getWalID()).build();

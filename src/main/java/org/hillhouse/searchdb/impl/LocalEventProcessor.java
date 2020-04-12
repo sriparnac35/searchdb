@@ -6,8 +6,6 @@ import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventPublisher;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventSubscriber;
 import org.hillhouse.searchdb.models.events.Event;
-import org.hillhouse.searchdb.enums.EventType;
-import org.hillhouse.searchdb.interfaces.EventProcessor;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,7 +20,7 @@ public class LocalEventProcessor implements EventManager, Initializable {
     @Override
     public void publishEvent(EventPublisher eventPublisher, Event event) {
         Subscriptions subscriptions = eventSubscribers.get(event.getName());
-        if (subscriptions != null){
+        if (subscriptions != null) {
             subscriptions.executorService.submit(new EventNotificationRunnable(event, subscriptions.eventSubscribers));
         }
     }
@@ -30,9 +28,9 @@ public class LocalEventProcessor implements EventManager, Initializable {
     @Override
     public void subscribeToEvent(EventSubscriber eventSubscriber, String eventName) {
         Subscriptions subscriptions = eventSubscribers.get(eventName);
-        if (subscriptions == null){
-            synchronized (this){
-                if (subscriptions == null){
+        if (subscriptions == null) {
+            synchronized (this) {
+                if (subscriptions == null) {
                     subscriptions = new Subscriptions();
                     eventSubscribers.put(eventName, subscriptions);
                 }
@@ -43,7 +41,8 @@ public class LocalEventProcessor implements EventManager, Initializable {
 
     @Override
     public void unsubscribeToEvent(EventSubscriber eventSubscriber, String eventName) {
-        Subscriptions subscriptions = eventSubscribers.get(eventName);;
+        Subscriptions subscriptions = eventSubscribers.get(eventName);
+        ;
         if (subscriptions != null) {
             subscriptions.eventSubscribers.remove(eventSubscriber);
         }
@@ -61,7 +60,7 @@ public class LocalEventProcessor implements EventManager, Initializable {
     }
 
     @AllArgsConstructor
-    private static class EventNotificationRunnable implements Runnable{
+    private static class EventNotificationRunnable implements Runnable {
         private Event event;
         private List<EventSubscriber> subscribers;
 
@@ -71,11 +70,11 @@ public class LocalEventProcessor implements EventManager, Initializable {
         }
     }
 
-    private static class Subscriptions{
+    private static class Subscriptions {
         List<EventSubscriber> eventSubscribers;
         ExecutorService executorService;
 
-        public Subscriptions(){
+        public Subscriptions() {
             this.eventSubscribers = new ArrayList<>();
             executorService = Executors.newSingleThreadScheduledExecutor();
         }

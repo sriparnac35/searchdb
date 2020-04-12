@@ -3,7 +3,6 @@ package org.hillhouse.searchdb;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-
 import java.io.IOException;
 
 /**
@@ -16,13 +15,12 @@ import java.io.IOException;
  * 6. put occurrence positions
  * 7. thread safety
  * 8. what if app crashes after wal flush
- * **/
+ **/
 public class App {
-    public static void main( String[] args ) throws IOException {
+    public static void main(String[] args) throws IOException {
         Injector injector = Guice.createInjector(new Module());
 
     }
-
 
 
 }

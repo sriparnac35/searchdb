@@ -13,8 +13,10 @@ import org.hillhouse.searchdb.interfaces.eventSystem.EventSubscriber;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataKey;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataValue;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataValueItem;
-import org.hillhouse.searchdb.models.events.*;
-import org.hillhouse.searchdb.impl.datastores.MemTableDataStore;
+import org.hillhouse.searchdb.models.events.MemTableAvailableForSinkEvent;
+import org.hillhouse.searchdb.models.events.PersistToSSTableBeginEvent;
+import org.hillhouse.searchdb.models.events.PersistToSSTableEndEvent;
+import org.hillhouse.searchdb.models.events.PersistToSSTableFailedEvent;
 import org.hillhouse.searchdb.models.memory.Memtable;
 
 import java.io.IOException;
@@ -28,11 +30,14 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Slf4j
 public class SSTableEventWrapper implements Initializable, EventPublisher {
-    @Inject private EventManager eventManager;
-    @Inject private SSTableDataStore dataStore;
-    @Inject private IDDao idDao;
+    @Inject
+    private EventManager eventManager;
+    @Inject
+    private SSTableDataStore dataStore;
+    @Inject
+    private IDDao idDao;
 
-    private Map<String, EventSubscriber> eventSubscribers ;
+    private Map<String, EventSubscriber> eventSubscribers;
 
     {
         eventSubscribers = new HashMap<>();
@@ -55,20 +60,20 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
         return this.getClass().getSimpleName();
     }
 
-    private void notifySSTableCreationStated(Memtable memTable){
+    private void notifySSTableCreationStated(Memtable memTable) {
         PersistToSSTableBeginEvent event = PersistToSSTableBeginEvent.builder().walID(memTable.getWalID())
                 .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
         eventManager.publishEvent(this, event);
     }
 
-    private void notifyNewSSTableCreated(Memtable memTable, String ssTable){
+    private void notifyNewSSTableCreated(Memtable memTable, String ssTable) {
         PersistToSSTableEndEvent persistToSSTableEndEvent = PersistToSSTableEndEvent.builder()
                 .ssTableName(ssTable).walID(memTable.getWalID())
                 .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
         eventManager.publishEvent(this, persistToSSTableEndEvent);
     }
 
-    private void notifySSTableCreationFailed(Memtable memTable){
+    private void notifySSTableCreationFailed(Memtable memTable) {
         PersistToSSTableFailedEvent event = PersistToSSTableFailedEvent.builder().walID(memTable.getWalID())
                 .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
         eventManager.publishEvent(this, event);
@@ -76,22 +81,23 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
 
 
     private void registerEventHandlers() throws Exception {
-        for (Map.Entry<String, EventSubscriber> subscriber : eventSubscribers.entrySet()){
-            ((Initializable)subscriber.getValue()).initialize();
+        for (Map.Entry<String, EventSubscriber> subscriber : eventSubscribers.entrySet()) {
+            ((Initializable) subscriber.getValue()).initialize();
             eventManager.subscribeToEvent(subscriber.getValue(), subscriber.getKey());
         }
     }
 
-    private void unregisterEventHandlers() throws Exception{
-        for (Map.Entry<String, EventSubscriber> subscriber : eventSubscribers.entrySet()){
+    private void unregisterEventHandlers() throws Exception {
+        for (Map.Entry<String, EventSubscriber> subscriber : eventSubscribers.entrySet()) {
             eventManager.subscribeToEvent(subscriber.getValue(), subscriber.getKey());
-            ((Initializable)subscriber.getValue()).destroy();
+            ((Initializable) subscriber.getValue()).destroy();
         }
         eventSubscribers.clear();
     }
 
-    private class MemtableFullEventHandler implements Initializable, EventSubscriber<MemTableAvailableForSinkEvent>{
-        @Inject private ExecutorService executorService;
+    private class MemtableFullEventHandler implements Initializable, EventSubscriber<MemTableAvailableForSinkEvent> {
+        @Inject
+        private ExecutorService executorService;
 
         @Override
         public void onEvent(MemTableAvailableForSinkEvent event) {
@@ -110,7 +116,7 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
     }
 
     @AllArgsConstructor
-    private class SSTableCreateRunnable implements Runnable{
+    private class SSTableCreateRunnable implements Runnable {
         private Memtable memTable;
 
         @Override
@@ -126,18 +132,18 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
             }
         }
 
-        private SSTableDataKey createKey(){
+        private SSTableDataKey createKey() {
             return SSTableDataKey.builder().walID(memTable.getWalID())
                     .tableIdentifier(String.valueOf(idDao.getNextID())).startID(memTable.getBeginLogID())
                     .endID(memTable.getEndLogID()).build();
         }
 
-        private SSTableDataValue createValue(){
+        private SSTableDataValue createValue() {
             List<SSTableDataValueItem> dataValueItems = memTable.readAll().stream().map(this::map).collect(Collectors.toList());
             return SSTableDataValue.builder().dataValueItems(dataValueItems).build();
         }
 
-        private SSTableDataValueItem map(Memtable.DataItem data){
+        private SSTableDataValueItem map(Memtable.DataItem data) {
             return SSTableDataValueItem.builder().rowKey(data.getRowID()).isDeleted(data.isDeleted())
                     .value(data.getValue()).build();
         }

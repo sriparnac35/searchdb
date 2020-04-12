@@ -13,12 +13,15 @@ import java.util.Deque;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CurrentMemtableWrapper {
-    @Inject private IDDao idDao;
-    @Getter private Memtable currentMemtable;
-    @Getter private final Deque<Memtable> oldTables = new ArrayDeque<>();
+    @Inject
+    private IDDao idDao;
+    @Getter
+    private Memtable currentMemtable;
+    @Getter
+    private final Deque<Memtable> oldTables = new ArrayDeque<>();
 
-    public void createNewMemtable(){
-        if (currentMemtable != null){
+    public void createNewMemtable() {
+        if (currentMemtable != null) {
             oldTables.addLast(currentMemtable);
         }
         currentMemtable = new Memtable(idDao.getNextID().get());

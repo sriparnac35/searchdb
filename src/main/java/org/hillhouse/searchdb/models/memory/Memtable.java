@@ -11,16 +11,22 @@ import java.util.List;
 
 public class Memtable extends QueueItem implements Readable<String, Memtable.DataItem> {
     private BST<String, DataItem> data;
-    @Getter @Setter private String walID;
-    @Getter @Setter private int beginLogID;
-    @Getter @Setter private int endLogID;
+    @Getter
+    @Setter
+    private String walID;
+    @Getter
+    @Setter
+    private int beginLogID;
+    @Getter
+    @Setter
+    private int endLogID;
 
-    public Memtable(long id){
+    public Memtable(long id) {
         this.id = id;
         data = new BST<>(Comparator.comparing(String::toString));
     }
 
-    public int size(){
+    public int size() {
         return data.getCount();
     }
 
@@ -39,7 +45,7 @@ public class Memtable extends QueueItem implements Readable<String, Memtable.Dat
         return data.search(key);
     }
 
-    public void insert(DataItem dataItem){
+    public void insert(DataItem dataItem) {
         data.insert(dataItem);
     }
 
@@ -48,7 +54,7 @@ public class Memtable extends QueueItem implements Readable<String, Memtable.Dat
     @AllArgsConstructor
     @Data
     @Builder
-    public static final class DataItem implements BST.NodeItem<String>{
+    public static final class DataItem implements BST.NodeItem<String> {
         private String rowID;
         private boolean isDeleted;
         private String value;

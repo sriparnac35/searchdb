@@ -11,12 +11,15 @@ import org.hillhouse.searchdb.models.wal.entries.WalEntry;
 import org.hillhouse.searchdb.models.wal.entries.WalStateEntry;
 import org.hillhouse.searchdb.models.wal.enums.WalCommitStatus;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Iterator;
 
 
 public class WalRecoveryWrapper implements WalProcessor {
-    @Inject private DocumentQueue<WalDataEntry> documentQueue;
-    @Inject private WALDataStore dataStore;
+    @Inject
+    private DocumentQueue<WalDataEntry> documentQueue;
+    @Inject
+    private WALDataStore dataStore;
 
     @Override
     public void recoverWal() throws Exception {
@@ -24,15 +27,15 @@ public class WalRecoveryWrapper implements WalProcessor {
         WalSearchValue searchValue = dataStore.search(searchKey);
         ArrayDeque<WalDataEntry> entriesToPush = new ArrayDeque<>();
 
-        for (int i = searchValue.getDataValues().size() - 1; i >= 0 ; i --){
+        for (int i = searchValue.getDataValues().size() - 1; i >= 0; i--) {
             WalEntry entry = searchValue.getDataValues().get(i);
-            if (entry instanceof WalStateEntry && ((WalStateEntry) entry).getCommitStatus() == WalCommitStatus.COMMIT_END){
+            if (entry instanceof WalStateEntry && ((WalStateEntry) entry).getCommitStatus() == WalCommitStatus.COMMIT_END) {
                 break;
-            }else if (entry instanceof WalDataEntry){
+            } else if (entry instanceof WalDataEntry) {
                 entriesToPush.addFirst((WalDataEntry) entry);
             }
         }
-        for (Iterator<WalDataEntry> iterator = entriesToPush.iterator(); iterator.hasNext(); ){
+        for (Iterator<WalDataEntry> iterator = entriesToPush.iterator(); iterator.hasNext(); ) {
             documentQueue.push(iterator.next());
         }
     }

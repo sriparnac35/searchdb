@@ -19,10 +19,10 @@ public class LocalFileDiskDao implements DiskDao {
     @Override
     public void createWithName(String name) throws IOException {
         File file = new File(directoryName, name);
-        if (file.exists()){
+        if (file.exists()) {
             throw new IOException("count not create file : " + directoryName + name);
         }
-        if (!(file.createNewFile() && file.setReadable(true) && file.setWritable(true) && file.setExecutable(false))){
+        if (!(file.createNewFile() && file.setReadable(true) && file.setWritable(true) && file.setExecutable(false))) {
             throw new IOException("count not set permissions for file : " + directoryName + name);
         }
     }
@@ -30,13 +30,13 @@ public class LocalFileDiskDao implements DiskDao {
     @Override
     public void deleteWithName(String name) throws IOException {
         File file = new File(directoryName, name);
-        if (!file.exists() || !file.delete()){
+        if (!file.exists() || !file.delete()) {
             throw new IOException("could not delete file : " + directoryName + name);
         }
     }
 
     @Override
-    public void makeCurrent(String name) throws IOException{
+    public void makeCurrent(String name) throws IOException {
         closeCurrentIfExists();
         this.currentFile = new File(directoryName, name);
         this.currentFileInputStream = new FileInputStream(currentFile);
@@ -57,7 +57,7 @@ public class LocalFileDiskDao implements DiskDao {
 
     @Override
     public byte[] getData(String name, int start, int end) throws IOException {
-        int lengthToRead = (end != -1) ? end - start : (int)currentFileInputStream.getChannel().size();
+        int lengthToRead = (end != -1) ? end - start : (int) currentFileInputStream.getChannel().size();
         byte[] data = new byte[lengthToRead];
         currentFileInputStream.read(data, start, lengthToRead);
         return data;
@@ -74,10 +74,10 @@ public class LocalFileDiskDao implements DiskDao {
     }
 
     private void closeCurrentIfExists() throws IOException {
-        if (currentFileInputStream != null){
+        if (currentFileInputStream != null) {
             currentFileInputStream.close();
         }
-        if (currentFileOutputStream != null){
+        if (currentFileOutputStream != null) {
             currentFileOutputStream.close();
         }
     }
