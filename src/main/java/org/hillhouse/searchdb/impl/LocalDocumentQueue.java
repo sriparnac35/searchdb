@@ -1,12 +1,11 @@
 package org.hillhouse.searchdb.impl;
 
 import org.hillhouse.searchdb.interfaces.utilities.DocumentQueue;
-import org.hillhouse.searchdb.models.QueueItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalDocumentQueue<T extends QueueItem> implements DocumentQueue<T> {
+public class LocalDocumentQueue<T> implements DocumentQueue<T> {
     private ArrayList<T> queue;
 
     @Override

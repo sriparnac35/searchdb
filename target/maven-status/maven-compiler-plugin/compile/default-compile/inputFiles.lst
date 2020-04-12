@@ -9,7 +9,6 @@
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/constants/Constants.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/memory/Memtable.java
-/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/DocumentWaldEvent.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/WalStateValue.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/Event.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/interfaces/capabilities/Readable.java
@@ -28,7 +27,6 @@
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/enums/WALOperationType.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/LocalEventProcessor.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/Module.java
-/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/WalRecoveryFailedEvent.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/diskDS/SSTableSearchKey.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/interfaces/processors/DataStore.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java
@@ -40,10 +38,8 @@
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalDataEntry.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/diskDS/SSTableDataValue.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java
-/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/QueueItem.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableBeginEvent.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/diskDS/SSTable.java
-/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/DocumentWalWriteFailedEvent.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/memory/MemTableDataKey.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/WalDataKey.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/algo/BST.java
@@ -52,7 +48,6 @@
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/memory/IndexSearchKey.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/constants/WalConstants.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/enums/WalCommitStatus.java
-/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/DocumentsRecoveredEvent.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/memory/MemtableSearchValue.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/WalSearchKey.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/constants/IndexConstants.java

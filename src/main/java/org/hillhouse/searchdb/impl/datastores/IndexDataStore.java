@@ -62,8 +62,8 @@ public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey
 
     private Index createNewIndexWithIDFor(Integer key, String ssTable) throws IOException {
         Index index = new Index(ssTable, key);
-        SSTableDataKey dataKey = SSTableDataKey.builder().tableIdentifier(ssTable).startID(0).endID(-1).build();
-        SSTableDataValue dataValue = dataStore.search(dataKey);
+        SSTableSearchKey searchKey = SSTableSearchKey.builder().ssTableName(ssTable).startOffset(0).endOffset(-1).build();
+        SSTableDataValue dataValue = dataStore.search(searchKey);
         List<Index.IndexItem> indexItems = IntStream.rangeClosed(0, dataValue.getDataValueItems().size()).filter(i -> i % IndexConstants.GAP_ROW_COUNT == 0)
                 .mapToObj(i -> dataValue.getDataValueItems().get(i))
                 .map(item -> Index.IndexItem.builder().rowKey(item.getRowKey()).offset(item.getOffset()).build())

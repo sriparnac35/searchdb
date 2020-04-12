@@ -21,7 +21,7 @@ public class IndexPoolWrapper implements Initializable {
     @Inject
     private IDDao idDao;
 
-    private Map<String, EventSubscriber> eventSubscribers = new HashMap<>();
+    private Map<String, EventSubscriber> eventSubscribers ;
 
     {
         eventSubscribers = new HashMap<>();
@@ -38,14 +38,13 @@ public class IndexPoolWrapper implements Initializable {
         eventSubscribers.forEach((key, value) -> eventManager.unsubscribeToEvent(value, key));
     }
 
-    @Slf4j
     private class PersistToSSTableEndEventHandler implements EventSubscriber<PersistToSSTableEndEvent> {
         @Override
         public void onEvent(PersistToSSTableEndEvent event) {
             try {
-                dataStore.insert((int) idDao.getNextID(), event.getSsTableName());
+                dataStore.insert(idDao.getNextID().get(), event.getSsTableName());
             } catch (IOException e) {
-                log.error(e.getMessage(), e);
+                e.printStackTrace();
             }
         }
     }

@@ -3,25 +3,19 @@ package org.hillhouse.searchdb.models.memory;
 import lombok.*;
 import org.hillhouse.searchdb.algo.BST;
 import org.hillhouse.searchdb.interfaces.capabilities.Readable;
-import org.hillhouse.searchdb.models.QueueItem;
 
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 
-public class Memtable extends QueueItem implements Readable<String, Memtable.DataItem> {
+public class Memtable implements Readable<String, Memtable.DataItem> {
+    private int id;
     private BST<String, DataItem> data;
-    @Getter
-    @Setter
-    private String walID;
-    @Getter
-    @Setter
-    private int beginLogID;
-    @Getter
-    @Setter
-    private int endLogID;
+    @Getter @Setter private String walID;
+    @Getter @Setter private int beginLogID;
+    @Getter @Setter private int endLogID;
 
-    public Memtable(long id) {
+    public Memtable(int id) {
         this.id = id;
         data = new BST<>(Comparator.comparing(String::toString));
     }

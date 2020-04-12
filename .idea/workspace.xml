@@ -3,61 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalEventProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalEventProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/MemtableConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/MemtableConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/QueueItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/DocumentWalWriteFailedEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/DocumentWaldEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/DocumentsRecoveredEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/MemTableAvailableForSinkEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/MemTableAvailableForSinkEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/NewIndexAvailableEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/NewIndexAvailableEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableBeginEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableBeginEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableEndEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableEndEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableFailedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableFailedEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/events/WalRecoveryFailedEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/memory/Memtable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/memory/Memtable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalDataValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalDataValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalStateValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalStateValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/Module.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/configs/SystemConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/daos/SSDocumentDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/datastructures/DocumentStore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/datastructures/IndexCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/datastructures/IndexStore.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/documentprocessors/BaseStemmer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/documentprocessors/FileBasedDocumentDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/documentprocessors/WordBasedStopWordRemover.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/documentprocessors/WordBasedTermFetcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/EventManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/EventTypes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventBroadcasters/DiskCapacityBasedEventBroadcaster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventBroadcasters/EventBroadcaster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventBroadcasters/IntervalBasedEventBroadcaster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventBroadcasters/PollBasedEventBroadcaster$IntervalThread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventBroadcasters/PollBasedEventBroadcaster.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventSubscribers/BaseEventSubscriber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/events/eventSubscribers/EventSubscriber.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/interfaces/Callback.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/interfaces/DocumentDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/interfaces/Initializable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/ChangeType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/Document$DocumentBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/Document.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/DocumentItem$DocumentItemBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/DocumentItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/Index$IndexItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/Index.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/OnDiskIndex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/Segment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/models/WALEntry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/DocumentIndexer$TaskRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/DocumentIndexer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/DocumentMerger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/IndexCreator$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/IndexCreator$TaskItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/IndexCreator$TaskRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/IndexCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/IndexMerger.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/Stemmer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/StopWordRemover.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/TermFetcher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/sriparna/processors/WalProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wal/WalValue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/searchdb-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/hillhouse/sriparna/AppTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +136,7 @@
       <workItem from="1585468161561" duration="13145000" />
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
-      <workItem from="1586598314555" duration="16099000" />
+      <workItem from="1586598314555" duration="18037000" />
     </task>
     <servers />
   </component>
@@ -177,10 +144,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586681099903">
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586685723618">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586681099903" />
+    <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1586685723618" />
     <state x="176" y="383" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1586559956951">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -197,10 +164,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="276" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1586597325697" />
-    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586600631731">
+    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586686853539">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586600631731" />
+    <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586686853539" />
     <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1580367367772">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -233,9 +200,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="358" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1581517180129" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586682533472">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1586686999341">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1586682533472" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1586686999341" />
   </component>
 </project>
