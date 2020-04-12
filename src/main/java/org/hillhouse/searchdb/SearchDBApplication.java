@@ -19,5 +19,6 @@ public class SearchDBApplication {
     public void run() throws Exception {
         searchDB.initialize();
         searchDB.insert("key", "value");
+        searchDB.insert("key1", "value1");
     }
 }

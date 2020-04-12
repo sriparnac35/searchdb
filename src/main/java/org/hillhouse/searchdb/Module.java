@@ -23,7 +23,6 @@ public class Module extends AbstractModule {
         bind(new TypeLiteral<DataStore<String, String, String, String>>(){}).to(SearchDB.class);
         bind(DiskDao.class).to(LocalFileDiskDao.class);
         bind(IDDao.class).to(LocalIDDao.class);
-        bind(new TypeLiteral<DocumentQueue<WalDataEntry>>(){}).toInstance(new LocalDocumentQueue<>());
         bind(CurrentMemtableWrapper.class).toInstance(new CurrentMemtableWrapper());
     }
 
@@ -34,4 +33,10 @@ public class Module extends AbstractModule {
         return eventProcessor;
     }
 
+    @Provides @Singleton
+    public DocumentQueue<WalDataEntry> provideWalEntryDataQueue() throws Exception {
+        DocumentQueue<WalDataEntry> queue = new LocalDocumentQueue<>();
+        queue.initialize();
+        return queue;
+    }
 }

@@ -3,10 +3,15 @@ package org.hillhouse.searchdb.impl;
 import org.hillhouse.searchdb.interfaces.utilities.DocumentQueue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ConcurrentLinkedDeque;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class LocalDocumentQueue<T> implements DocumentQueue<T> {
-    private ArrayList<T> queue;
+    private ConcurrentLinkedDeque<T> queue;
 
     @Override
     public void push(T data) {
@@ -20,13 +25,7 @@ public class LocalDocumentQueue<T> implements DocumentQueue<T> {
 
     @Override
     public T getNext() {
-        return queue.size() > 0 ? queue.get(0) : null;
-    }
-
-    @Override
-    public List<T> getNext(int count) {
-        int num = Math.min(count, queue.size());
-        return queue.subList(0, num);
+        return queue.size() > 0 ? queue.peek() : null;
     }
 
     @Override
@@ -36,7 +35,7 @@ public class LocalDocumentQueue<T> implements DocumentQueue<T> {
 
     @Override
     public void initialize() throws Exception {
-        queue = new ArrayList<>();
+        queue = new ConcurrentLinkedDeque<>();
     }
 
     @Override

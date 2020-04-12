@@ -22,7 +22,7 @@ import java.util.List;
 import static org.hillhouse.searchdb.constants.WalConstants.*;
 
 public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKey, WalSearchValue> {
-    private static final String FILE_NAME = WalConstants.WAL_DIRECTORY +  "wal";
+    private static final String FILE_NAME = WalConstants.WAL_DIRECTORY +  "wal.wal";
     @Inject private DiskDao diskDao;
 
     @Override
@@ -91,10 +91,14 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
 
         byte[] rowKeyBytes = BigInteger.valueOf(logID).toByteArray();
         System.arraycopy(rowKeyBytes, 0, bytes, WalConstants.OFFSET_LOG_ID + LENGTH_LOG_ID - rowKeyBytes.length, rowKeyBytes.length);
+
         bytes[WalConstants.OFFSET_ENTRY_TYPE] = WalConstants.VALUE_ENTRY_TYPE_DATA;
+
         System.arraycopy(key.getId().getBytes(), 0, bytes, WalConstants.OFFSET_ROW_KEY - key.getId().length(), key.getId().length());
         bytes[WalConstants.OFFSET_OPERATION_TYPE] = deriveOperationTypeFlag(operationType);
-        System.arraycopy(BigInteger.valueOf(valueLength).toByteArray(), 0, bytes, WalConstants.OFFSET_VALUE_LENGTH, WalConstants.LENGTH_VALUE_LENGTH);
+
+        byte[] valueLengthBytes = BigInteger.valueOf(valueLength).toByteArray();
+        System.arraycopy(valueLengthBytes, 0, bytes, WalConstants.OFFSET_VALUE_LENGTH + WalConstants.LENGTH_VALUE_LENGTH - valueLengthBytes.length, valueLengthBytes.length);
         System.arraycopy(valueBytes, 0, bytes, WalConstants.OFFSET_VALUE, valueLength);
 
         diskDao.writeAndSyncToLatest(bytes);
