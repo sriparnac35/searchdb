@@ -22,7 +22,7 @@ import java.util.List;
 import static org.hillhouse.searchdb.constants.WalConstants.*;
 
 public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKey, WalSearchValue> {
-    private static final String FILE_NAME = "./wal";
+    private static final String FILE_NAME = WalConstants.WAL_DIRECTORY +  "wal";
     @Inject private DiskDao diskDao;
 
     @Override
@@ -89,7 +89,8 @@ public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKe
         int valueLength = (operationType == WALOperationType.DELETE) ? 0 : valueBytes.length;
         byte[] bytes = new byte[WalConstants.HEADER_LENGTH_DATA + valueLength];
 
-        System.arraycopy(BigInteger.valueOf(logID).toByteArray(), 0, bytes, WalConstants.OFFSET_LOG_ID, WalConstants.LENGTH_LOG_ID);
+        byte[] rowKeyBytes = BigInteger.valueOf(logID).toByteArray();
+        System.arraycopy(rowKeyBytes, 0, bytes, WalConstants.OFFSET_LOG_ID + LENGTH_LOG_ID - rowKeyBytes.length, rowKeyBytes.length);
         bytes[WalConstants.OFFSET_ENTRY_TYPE] = WalConstants.VALUE_ENTRY_TYPE_DATA;
         System.arraycopy(key.getId().getBytes(), 0, bytes, WalConstants.OFFSET_ROW_KEY - key.getId().length(), key.getId().length());
         bytes[WalConstants.OFFSET_OPERATION_TYPE] = deriveOperationTypeFlag(operationType);

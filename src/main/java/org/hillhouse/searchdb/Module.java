@@ -1,6 +1,8 @@
 package org.hillhouse.searchdb;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.google.inject.TypeLiteral;
 import org.hillhouse.searchdb.impl.LocalDocumentQueue;
 import org.hillhouse.searchdb.impl.LocalEventProcessor;
@@ -19,10 +21,17 @@ public class Module extends AbstractModule {
     @Override
     protected void configure() {
         bind(new TypeLiteral<DataStore<String, String, String, String>>(){}).to(SearchDB.class);
-        bind(EventManager.class).to(LocalEventProcessor.class).asEagerSingleton();
         bind(DiskDao.class).to(LocalFileDiskDao.class);
         bind(IDDao.class).to(LocalIDDao.class);
         bind(new TypeLiteral<DocumentQueue<WalDataEntry>>(){}).toInstance(new LocalDocumentQueue<>());
         bind(CurrentMemtableWrapper.class).toInstance(new CurrentMemtableWrapper());
     }
+
+    @Provides @Singleton
+    public EventManager provideEventManager() throws Exception {
+        LocalEventProcessor eventProcessor = new LocalEventProcessor();
+        eventProcessor.initialize();
+        return eventProcessor;
+    }
+
 }

@@ -3,8 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/SearchDBApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/WalConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/WalConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalFileDiskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalFileDiskDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/constants/WalConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/constants/WalConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/LocalFileDiskDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/LocalFileDiskDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/searchdb-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/searchdb-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.hillhouse.searchdb.AppTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.hillhouse.searchdb.AppTest.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +70,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -67,9 +87,9 @@
       <recent name="main.interfaces" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.hillhouse.searchdb.App" />
+  <component name="RunManager" selected="Application.SearchDBApplication">
+    <configuration name="SearchDBApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.hillhouse.searchdb.SearchDBApplication" />
       <module name="searchdb" />
       <extension name="coverage">
         <pattern>
@@ -81,9 +101,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SearchDBTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="searchdb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hillhouse.searchdb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.hillhouse.searchdb" />
+      <option name="MAIN_CLASS_NAME" value="org.hillhouse.searchdb.SearchDBTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchDBTest.testSearchCallsDocumentRetrieverSearchAndReturnsValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="searchdb" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hillhouse.searchdb.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.hillhouse.searchdb" />
+      <option name="MAIN_CLASS_NAME" value="org.hillhouse.searchdb.SearchDBTest" />
+      <option name="METHOD_NAME" value="testSearchCallsDocumentRetrieverSearchAndReturnsValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.SearchDBApplication" />
+        <item itemvalue="JUnit.SearchDBTest.testSearchCallsDocumentRetrieverSearchAndReturnsValue" />
+        <item itemvalue="JUnit.SearchDBTest" />
       </list>
     </recent_temporary>
   </component>
@@ -116,7 +169,7 @@
       <workItem from="1585468161561" duration="13145000" />
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
-      <workItem from="1586598314555" duration="20175000" />
+      <workItem from="1586598314555" duration="23952000" />
     </task>
     <servers />
   </component>
@@ -124,6 +177,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="311" y="115" width="831" height="669" key="#Project_Structure" timestamp="1586710066893">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="311" y="115" width="831" height="669" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1586710066893" />
+    <state x="376" y="261" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586710303740">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="376" y="261" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1586710303740" />
     <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586706892810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -148,22 +209,42 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586686853539" />
-    <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1586707602985">
+    <state x="582" y="327" key="#xdebugger.evaluate" timestamp="1586711436664">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586707602985" />
-    <state width="1400" height="244" key="GridCell.Tab.0.center" timestamp="1586707602972">
+    <state x="582" y="327" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1586711436664" />
+    <state width="1400" height="304" key="GridCell.Tab.0.bottom" timestamp="1586717011775">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586707602972" />
-    <state width="1400" height="244" key="GridCell.Tab.0.left" timestamp="1586707602969">
+    <state width="1400" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586717011775" />
+    <state width="1400" height="304" key="GridCell.Tab.0.center" timestamp="1586717011773">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586707602969" />
-    <state width="1400" height="244" key="GridCell.Tab.0.right" timestamp="1586707602982">
+    <state width="1400" height="304" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586717011773" />
+    <state width="1400" height="304" key="GridCell.Tab.0.left" timestamp="1586717011772">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586707602982" />
+    <state width="1400" height="304" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586717011772" />
+    <state width="1400" height="304" key="GridCell.Tab.0.right" timestamp="1586717011774">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1400" height="304" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586717011774" />
+    <state width="1400" height="304" key="GridCell.Tab.1.bottom" timestamp="1586717011779">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1400" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586717011779" />
+    <state width="1400" height="304" key="GridCell.Tab.1.center" timestamp="1586717011777">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1400" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1586717011777" />
+    <state width="1400" height="304" key="GridCell.Tab.1.left" timestamp="1586717011776">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1400" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1586717011776" />
+    <state width="1400" height="304" key="GridCell.Tab.1.right" timestamp="1586717011778">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1400" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1586717011778" />
     <state x="208" y="31" key="SettingsEditor" timestamp="1586598216926">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -188,5 +269,31 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1586686999341" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/WalWrapper.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

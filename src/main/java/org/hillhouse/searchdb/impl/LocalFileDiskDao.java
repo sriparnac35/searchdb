@@ -20,7 +20,7 @@ public class LocalFileDiskDao implements DiskDao {
     public void createWithName(String name) throws IOException {
         File file = new File(name);
         if (file.exists()) {
-            throw new IOException("count not create file : " + name);
+            return;
         }
         if (!(file.createNewFile() && file.setReadable(true) && file.setWritable(true) && file.setExecutable(false))) {
             throw new IOException("count not set permissions for file : " + name);

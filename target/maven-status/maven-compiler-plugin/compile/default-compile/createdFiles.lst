@@ -33,6 +33,7 @@ org/hillhouse/searchdb/interfaces/eventSystem/EventSubscriber.class
 org/hillhouse/searchdb/models/events/NewIndexAvailableEvent.class
 org/hillhouse/searchdb/models/wal/entries/WalDataEntry$WalDataEntryBuilder.class
 org/hillhouse/searchdb/models/events/NewIndexAvailableEvent$NewIndexAvailableEventBuilderImpl.class
+org/hillhouse/searchdb/SearchDBApplication.class
 org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper$1.class
 org/hillhouse/searchdb/impl/eventHandlers/WalWrapper$WAlUpdateRunnable.class
 org/hillhouse/searchdb/models/events/NewIndexAvailableEvent$NewIndexAvailableEventBuilder.class
@@ -42,6 +43,7 @@ org/hillhouse/searchdb/interfaces/capabilities/Readable.class
 org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper$MemtableFullEventHandler.class
 org/hillhouse/searchdb/models/wal/WalValue$WalValueBuilder.class
 org/hillhouse/searchdb/impl/datastores/WALDataStore$1.class
+org/hillhouse/searchdb/SearchDB.class
 org/hillhouse/searchdb/interfaces/capabilities/Initializable.class
 org/hillhouse/searchdb/interfaces/eventSystem/EventManager.class
 org/hillhouse/searchdb/models/memory/MemtableSearchValueItem$MemtableSearchValueItemBuilder.class
@@ -91,6 +93,7 @@ org/hillhouse/searchdb/impl/datastores/MemTableDataStore$1.class
 org/hillhouse/searchdb/models/wal/entries/WalStateEntry.class
 org/hillhouse/searchdb/models/wal/entries/WalEntry$1.class
 org/hillhouse/searchdb/interfaces/processors/DataStore.class
+org/hillhouse/searchdb/impl/LocalIDDao.class
 org/hillhouse/searchdb/models/wal/WalDataValue$WalDataValueBuilderImpl.class
 org/hillhouse/searchdb/models/diskDS/DiskDataValue.class
 org/hillhouse/searchdb/models/wal/entries/WalDataEntry$1.class
@@ -111,8 +114,8 @@ org/hillhouse/searchdb/models/memory/MemtableSearchValueItem.class
 org/hillhouse/searchdb/models/diskDS/SSTableSearchKey.class
 org/hillhouse/searchdb/models/wal/WalSearchKey$WalSearchKeyBuilder.class
 org/hillhouse/searchdb/models/wal/WalValue.class
-org/hillhouse/searchdb/App.class
 org/hillhouse/searchdb/models/memory/Index.class
+org/hillhouse/searchdb/Module$2.class
 org/hillhouse/searchdb/models/memory/MemTableDataValue.class
 org/hillhouse/searchdb/models/events/PersistToSSTableFailedEvent$PersistToSSTableFailedEventBuilder.class
 org/hillhouse/searchdb/models/events/PersistToSSTableFailedEvent$1.class
@@ -147,6 +150,7 @@ org/hillhouse/searchdb/models/wal/enums/WalCommitStatus.class
 org/hillhouse/searchdb/impl/eventHandlers/WalWrapper.class
 org/hillhouse/searchdb/models/wal/WalSearchKey.class
 org/hillhouse/searchdb/impl/datastores/MemTableDataStore.class
+org/hillhouse/searchdb/Module$1.class
 org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.class
 org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper$WalEntryRunnable.class
 org/hillhouse/searchdb/models/wal/entries/WalStateEntry$WalStateEntryBuilderImpl.class

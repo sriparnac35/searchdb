@@ -1,6 +1,8 @@
 package org.hillhouse.searchdb.constants;
 
 public class WalConstants {
+    public static final String WAL_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/wal/";
+
     public static final int OFFSET_LOG_ID = 0;
     public static final int LENGTH_LOG_ID = 4;
 

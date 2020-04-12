@@ -52,14 +52,16 @@
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/WalSearchKey.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/constants/IndexConstants.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/diskDS/DiskDataKey.java
+/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/LocalIDDao.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java
-/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/App.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/interfaces/capabilities/Searchable.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/events/PersistToSSTableEndEvent.java
+/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/SearchDB.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wrappers/CurrentMemtableWrapper.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/entries/WalStateEntry.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java
+/Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/SearchDBApplication.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/models/wal/WalValue.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/interfaces/dao/DiskDao.java
 /Users/sriparna.c/Documents/searchdb/src/main/java/org/hillhouse/searchdb/interfaces/utilities/Mapper.java
