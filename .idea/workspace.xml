@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/SearchDBApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/WalConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/WalConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalFileDiskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalFileDiskDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/Module.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/constants/WalConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/constants/WalConstants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/LocalFileDiskDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/LocalFileDiskDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/hillhouse/searchdb/impl/datastores/WALDataStore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/searchdb-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/searchdb-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-org.hillhouse.searchdb.AppTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/org.hillhouse.searchdb.AppTest.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +145,7 @@
       <workItem from="1585468161561" duration="13145000" />
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
-      <workItem from="1586598314555" duration="23952000" />
+      <workItem from="1586598314555" duration="24205000" />
     </task>
     <servers />
   </component>
@@ -292,6 +268,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java</url>
           <line>92</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/WALDataStore.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
