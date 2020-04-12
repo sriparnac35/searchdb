@@ -21,10 +21,8 @@ import java.util.concurrent.TimeUnit;
 import static org.hillhouse.searchdb.constants.MemtableConstants.MEMTABLE_SINK_INTERVAL_IN_SEC;
 
 public class MemtableSinkWrapper implements EventPublisher, Initializable {
-    @Inject
-    private CurrentMemtableWrapper memtableWrapper;
-    @Inject
-    private EventManager eventManager;
+    @Inject private CurrentMemtableWrapper memtableWrapper;
+    @Inject private EventManager eventManager;
 
     private Map<String, EventSubscriber> eventSubscribers;
     private ScheduledExecutorService sinkExecutorService;

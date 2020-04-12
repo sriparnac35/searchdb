@@ -23,8 +23,7 @@ import static org.hillhouse.searchdb.constants.WalConstants.*;
 
 public class WALDataStore implements DataStore<WalDataKey, WalValue, WalSearchKey, WalSearchValue> {
     private static final String FILE_NAME = "./wal";
-    @Inject
-    private DiskDao diskDao;
+    @Inject private DiskDao diskDao;
 
     @Override
     public void insert(WalDataKey key, WalValue value) throws IOException {

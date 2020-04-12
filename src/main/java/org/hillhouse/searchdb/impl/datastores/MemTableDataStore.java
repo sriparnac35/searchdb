@@ -16,10 +16,8 @@ import java.util.concurrent.Executors;
 
 
 public class MemTableDataStore implements EventPublisher, DataStore<MemTableDataKey, MemTableDataValue, MemTableDataKey, MemtableSearchValue> {
-    @Inject
-    private EventManager eventManager;
-    @Inject
-    private CurrentMemtableWrapper memtableWrapper;
+    @Inject private EventManager eventManager;
+    @Inject private CurrentMemtableWrapper memtableWrapper;
     private ExecutorService executorService;
 
     public MemTableDataStore(EventManager eventManager) {

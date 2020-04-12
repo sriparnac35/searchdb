@@ -22,8 +22,6 @@ import java.util.stream.Collectors;
 public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataValue, SSTableSearchKey, SSTableDataValue> {
     private static final String FILE_PREFIX = "ss_";
     private final DiskDao diskDao;
-    private final boolean shouldIndex;
-
 
     @Override
     public void insert(SSTableDataKey key, SSTableDataValue value) throws IOException {

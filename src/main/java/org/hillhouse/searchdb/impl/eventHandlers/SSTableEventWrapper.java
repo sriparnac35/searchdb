@@ -30,12 +30,9 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Slf4j
 public class SSTableEventWrapper implements Initializable, EventPublisher {
-    @Inject
-    private EventManager eventManager;
-    @Inject
-    private SSTableDataStore dataStore;
-    @Inject
-    private IDDao idDao;
+    @Inject private EventManager eventManager;
+    @Inject private SSTableDataStore dataStore;
+    @Inject private IDDao idDao;
 
     private Map<String, EventSubscriber> eventSubscribers;
 

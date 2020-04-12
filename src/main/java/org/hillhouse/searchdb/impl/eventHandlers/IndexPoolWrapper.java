@@ -14,12 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class IndexPoolWrapper implements Initializable {
-    @Inject
-    private EventManager eventManager;
-    @Inject
-    private IndexDataStore dataStore;
-    @Inject
-    private IDDao idDao;
+    @Inject private EventManager eventManager;
+    @Inject private IndexDataStore dataStore;
+    @Inject private IDDao idDao;
 
     private Map<String, EventSubscriber> eventSubscribers ;
 
@@ -42,7 +39,7 @@ public class IndexPoolWrapper implements Initializable {
         @Override
         public void onEvent(PersistToSSTableEndEvent event) {
             try {
-                dataStore.insert(idDao.getNextID().get(), event.getSsTableName());
+                dataStore.insert(idDao.getNextID(), event.getSsTableName());
             } catch (IOException e) {
                 e.printStackTrace();
             }

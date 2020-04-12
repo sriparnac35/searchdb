@@ -24,6 +24,6 @@ public class CurrentMemtableWrapper {
         if (currentMemtable != null) {
             oldTables.addLast(currentMemtable);
         }
-        currentMemtable = new Memtable(idDao.getNextID().get());
+        currentMemtable = new Memtable(idDao.getNextID());
     }
 }

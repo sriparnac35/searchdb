@@ -17,9 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey, SSTableSearchKey> {
-    @Inject
-    private SSTableDataStore dataStore;
-
+    @Inject private SSTableDataStore dataStore;
     private List<Index> indexList;
 
     @Override

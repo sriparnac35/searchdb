@@ -16,10 +16,8 @@ import java.util.Iterator;
 
 
 public class WalRecoveryWrapper implements WalProcessor {
-    @Inject
-    private DocumentQueue<WalDataEntry> documentQueue;
-    @Inject
-    private WALDataStore dataStore;
+    @Inject private DocumentQueue<WalDataEntry> documentQueue;
+    @Inject private WALDataStore dataStore;
 
     @Override
     public void recoverWal() throws Exception {

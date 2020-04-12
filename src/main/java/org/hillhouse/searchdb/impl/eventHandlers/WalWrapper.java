@@ -33,14 +33,10 @@ import java.util.concurrent.Executors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WalWrapper implements Initializable, EventPublisher, CUDable<String, String> {
-    @Inject
-    private EventManager eventManager;
-    @Inject
-    private WALDataStore dataStore;
-    @Inject
-    private IDDao idDao;
-    @Inject
-    private DocumentQueue<WalDataEntry> documentQueue;
+    @Inject private EventManager eventManager;
+    @Inject private WALDataStore dataStore;
+    @Inject private IDDao idDao;
+    @Inject private DocumentQueue<WalDataEntry> documentQueue;
 
     private ExecutorService executorService;
 
@@ -111,7 +107,7 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
         @SneakyThrows
         @Override
         public void run() {
-            dataKey.setLogID(idDao.getNextID().get());
+            dataKey.setLogID(idDao.getNextID());
             dataStore.insert(dataKey, dataValue);
             onOperationComplete(dataKey, dataValue, WALOperationType.INSERT);
         }
@@ -125,7 +121,7 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
         @SneakyThrows
         @Override
         public void run() {
-            dataKey.setLogID(idDao.getNextID().get());
+            dataKey.setLogID(idDao.getNextID());
             dataStore.update(dataKey, dataValue);
             onOperationComplete(dataKey, dataValue, WALOperationType.UPDATE);
         }
@@ -138,7 +134,7 @@ public class WalWrapper implements Initializable, EventPublisher, CUDable<String
         @SneakyThrows
         @Override
         public void run() {
-            dataKey.setLogID(idDao.getNextID().get());
+            dataKey.setLogID(idDao.getNextID());
             dataStore.delete(dataKey);
             onOperationComplete(dataKey, null, WALOperationType.DELETE);
         }
