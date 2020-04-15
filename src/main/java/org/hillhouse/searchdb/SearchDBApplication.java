@@ -29,9 +29,11 @@ public class SearchDBApplication {
         searchDB.initialize();
         searchDB.insert("key", "value");
         searchDB.insert("key1", "value1");
+        searchDB.insert("key2", "value2");
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
         System.out.println(searchDB.search("key"));
         System.out.println(searchDB.search("key1"));
+        System.out.println(searchDB.search("key2"));
     }
 }

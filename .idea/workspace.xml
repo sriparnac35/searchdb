@@ -3,19 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="c4559ca3-33fc-451c-a2a0-a035a7527118" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/Module.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/SearchDBApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/SearchDBApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/algo/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/algo/BST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/DocumentRetriever.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/DocumentRetriever.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalDocumentQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalIDDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/LocalIDDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/IndexDataStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/MemtableConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/constants/MemtableConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/IndexPoolWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSourceWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/interfaces/utilities/DocumentQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +155,7 @@
       <workItem from="1586350462166" duration="61960000" />
       <workItem from="1586598242776" duration="14000" />
       <workItem from="1586598314555" duration="24205000" />
-      <workItem from="1586763737399" duration="20553000" />
+      <workItem from="1586763737399" duration="23420000" />
     </task>
     <servers />
   </component>
@@ -173,10 +167,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="311" y="115" width="831" height="669" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1586710066893" />
-    <state x="376" y="261" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586726670646">
+    <state x="376" y="261" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586979707359">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="376" y="261" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1586726670646" />
+    <state x="376" y="261" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1586979707359" />
     <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1586706892810">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -201,46 +195,46 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="205" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1586686853539" />
-    <state x="582" y="327" key="#xdebugger.evaluate" timestamp="1586976145024">
+    <state x="582" y="327" key="#xdebugger.evaluate" timestamp="1586979216969">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="582" y="327" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1586976145024" />
-    <state width="544" height="466" key="DebuggerActiveHint" timestamp="1586976172622">
+    <state x="582" y="327" key="#xdebugger.evaluate/0.0.1440.900@0.0.1440.900" timestamp="1586979216969" />
+    <state width="544" height="466" key="DebuggerActiveHint" timestamp="1586979924371">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="544" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1586976172622" />
-    <state width="1400" height="244" key="GridCell.Tab.0.bottom" timestamp="1586976826920">
+    <state width="544" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1586979924371" />
+    <state width="1400" height="304" key="GridCell.Tab.0.bottom" timestamp="1586979838703">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586976826919" />
-    <state width="1400" height="244" key="GridCell.Tab.0.center" timestamp="1586976826918">
+    <state width="1400" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586979838703" />
+    <state width="1400" height="304" key="GridCell.Tab.0.center" timestamp="1586979838701">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586976826918" />
-    <state width="1400" height="244" key="GridCell.Tab.0.left" timestamp="1586976826917">
+    <state width="1400" height="304" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1586979838701" />
+    <state width="1400" height="304" key="GridCell.Tab.0.left" timestamp="1586979838701">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586976826917" />
-    <state width="1400" height="244" key="GridCell.Tab.0.right" timestamp="1586976826919">
+    <state width="1400" height="304" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1586979838701" />
+    <state width="1400" height="304" key="GridCell.Tab.0.right" timestamp="1586979838702">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586976826919" />
-    <state width="1400" height="304" key="GridCell.Tab.1.bottom" timestamp="1586976537496">
+    <state width="1400" height="304" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1586979838702" />
+    <state width="1400" height="304" key="GridCell.Tab.1.bottom" timestamp="1586979889444">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586976537496" />
-    <state width="1400" height="304" key="GridCell.Tab.1.center" timestamp="1586976537495">
+    <state width="1400" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1586979889444" />
+    <state width="1400" height="304" key="GridCell.Tab.1.center" timestamp="1586979889442">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1586976537495" />
-    <state width="1400" height="304" key="GridCell.Tab.1.left" timestamp="1586976537494">
+    <state width="1400" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1586979889442" />
+    <state width="1400" height="304" key="GridCell.Tab.1.left" timestamp="1586979889442">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1586976537494" />
-    <state width="1400" height="304" key="GridCell.Tab.1.right" timestamp="1586976537495">
+    <state width="1400" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1586979889442" />
+    <state width="1400" height="304" key="GridCell.Tab.1.right" timestamp="1586979889443">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1400" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1586976537495" />
+    <state width="1400" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1586979889443" />
     <state x="208" y="31" key="SettingsEditor" timestamp="1586598216926">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -257,10 +251,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="358" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1581517180129" />
-    <state x="247" y="193" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586976019366">
+    <state x="247" y="193" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586979744776">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="247" y="193" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1586976019366" />
+    <state x="247" y="193" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1586979744776" />
     <state x="361" y="214" width="717" height="472" key="find.popup" timestamp="1586976865049">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -355,27 +349,27 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java</url>
-          <line>39</line>
+          <line>41</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java</url>
-          <line>78</line>
+          <line>80</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java</url>
-          <line>69</line>
+          <line>71</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java</url>
-          <line>97</line>
+          <line>99</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java</url>
-          <line>57</line>
+          <line>59</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
@@ -393,25 +387,130 @@
           <line>61</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/MemTableDataStore.java</url>
-          <line>89</line>
+          <line>91</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/memory/Memtable.java</url>
           <line>42</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/algo/BST.java</url>
           <line>47</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/algo/BST.java</url>
           <line>50</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/MemtableSinkWrapper.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>129</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/eventHandlers/SSTableEventWrapper.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wrappers/CurrentMemtableWrapper.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wrappers/CurrentMemtableWrapper.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/models/wrappers/CurrentMemtableWrapper.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/hillhouse/searchdb/impl/datastores/SSTableDataStore.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

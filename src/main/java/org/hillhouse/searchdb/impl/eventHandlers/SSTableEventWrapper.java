@@ -59,20 +59,22 @@ public class SSTableEventWrapper implements Initializable, EventPublisher {
 
     private void notifySSTableCreationStated(Memtable memTable) {
         PersistToSSTableBeginEvent event = PersistToSSTableBeginEvent.builder().walID(memTable.getWalID())
-                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
+                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID())
+                .name(PersistToSSTableBeginEvent.class.getSimpleName()).publisherID(getPublisherID()).build();
         eventManager.publishEvent(this, event);
     }
 
     private void notifyNewSSTableCreated(Memtable memTable, String ssTable) {
-        PersistToSSTableEndEvent persistToSSTableEndEvent = PersistToSSTableEndEvent.builder()
-                .ssTableName(ssTable).walID(memTable.getWalID())
-                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
+        PersistToSSTableEndEvent persistToSSTableEndEvent = PersistToSSTableEndEvent.builder().ssTableName(ssTable)
+                .walID(memTable.getWalID()).beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID())
+                .name(PersistToSSTableEndEvent.class.getSimpleName()).publisherID(getPublisherID()).build();
         eventManager.publishEvent(this, persistToSSTableEndEvent);
     }
 
     private void notifySSTableCreationFailed(Memtable memTable) {
         PersistToSSTableFailedEvent event = PersistToSSTableFailedEvent.builder().walID(memTable.getWalID())
-                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID()).build();
+                .beginLogID(memTable.getBeginLogID()).endLogID(memTable.getEndLogID())
+                .name(PersistToSSTableFailedEvent.class.getSimpleName()).publisherID(getPublisherID()).build();
         eventManager.publishEvent(this, event);
     }
 

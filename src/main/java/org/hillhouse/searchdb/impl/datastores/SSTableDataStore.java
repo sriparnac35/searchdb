@@ -113,13 +113,15 @@ public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataVa
     }
 
     private RowObject createRowPayload(SSTableDataValueItem dataItem) {
-        String rowKey = dataItem.getRowKey();
+        byte[] rowKeyAsBytes = dataItem.getRowKey().getBytes();
         byte[] dataAsBytes = dataItem.isDeleted() ? new byte[0] : dataItem.getValue().getBytes();
         byte[] finalData = new byte[SSTableConstants.ROW_HEADER_SIZE_BYTES + dataAsBytes.length];
 
-        System.arraycopy(rowKey.getBytes(), 0, finalData, SSTableConstants.ROW_HEADER_SIZE_BYTES - rowKey.length(), rowKey.length());
+        System.arraycopy(rowKeyAsBytes, 0, finalData, SSTableConstants.OFFSET_ROW_ID + SSTableConstants.MAX_ROW_ID_LENGTH - rowKeyAsBytes.length, rowKeyAsBytes.length);
         finalData[SSTableConstants.OFFSET_ROW_FLAG] = dataItem.isDeleted() ? SSTableConstants.FLAG_DELETED : SSTableConstants.FLAG_UPDATED;
-        System.arraycopy(BigInteger.valueOf(dataAsBytes.length).toByteArray(), 0, finalData, SSTableConstants.OFFSET_ROW_VALUE_LENGTH, SSTableConstants.SIZE_BYTE_VALUE_LENGTH);
+
+        byte[] lengthAsBytes = BigInteger.valueOf(dataAsBytes.length).toByteArray();
+        System.arraycopy(lengthAsBytes, 0, finalData, SSTableConstants.OFFSET_ROW_VALUE_LENGTH + SSTableConstants.SIZE_BYTE_VALUE_LENGTH - lengthAsBytes.length, lengthAsBytes.length);
         System.arraycopy(dataAsBytes, 0, finalData, SSTableConstants.OFFSET_ROW_VALUE_DATA, dataAsBytes.length);
         return new RowObject(finalData, finalData.length);
     }

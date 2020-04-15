@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 public class IndexPoolWrapper implements Initializable {
     @Inject private EventManager eventManager;
     @Inject private IndexDataStore dataStore;
@@ -35,7 +36,6 @@ public class IndexPoolWrapper implements Initializable {
         eventSubscribers.forEach((key, value) -> eventManager.unsubscribeToEvent(value, key));
     }
 
-    @Slf4j
     private class PersistToSSTableEndEventHandler implements EventSubscriber<PersistToSSTableEndEvent> {
         @Override
         public void onEvent(PersistToSSTableEndEvent event) {

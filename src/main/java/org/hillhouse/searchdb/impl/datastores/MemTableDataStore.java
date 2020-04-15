@@ -24,9 +24,11 @@ public class MemTableDataStore implements EventPublisher, DataStore<MemTableData
     private ExecutorService executorService;
 
     @Override
-    public void initialize() throws Exception {
-        executorService = Executors.newSingleThreadExecutor();
-        createNewMemTable();
+    public synchronized void initialize() throws Exception {
+        if (executorService == null){
+            executorService = Executors.newSingleThreadExecutor();
+            createNewMemTable();
+        }
     }
 
     @Override

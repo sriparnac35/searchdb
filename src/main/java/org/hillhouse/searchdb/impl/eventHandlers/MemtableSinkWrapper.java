@@ -111,7 +111,8 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
         }
 
         private void notifyMemtableAvailableForSink(Memtable memtable) {
-            MemTableAvailableForSinkEvent event = MemTableAvailableForSinkEvent.builder().memTable(memtable).build();
+            MemTableAvailableForSinkEvent event = MemTableAvailableForSinkEvent.builder().memTable(memtable)
+                    .name(MemTableAvailableForSinkEvent.class.getSimpleName()).publisherID(getPublisherID()).build();
             eventManager.publishEvent(MemtableSinkWrapper.this, event);
         }
     }
