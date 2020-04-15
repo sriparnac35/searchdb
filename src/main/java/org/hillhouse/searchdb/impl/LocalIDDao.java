@@ -9,6 +9,6 @@ public class LocalIDDao implements IDDao {
 
     @Override
     public int getNextID() {
-        return currentID.getAndDecrement();
+        return currentID.getAndIncrement();
     }
 }

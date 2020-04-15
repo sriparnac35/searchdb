@@ -25,12 +25,9 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Setter
 public class DocumentRetriever implements Searchable<String, String> {
-    @Inject
-    private MemTableDataStore memTableDataStore;
-    @Inject
-    private IndexDataStore indexDataStore;
-    @Inject
-    private SSTableDataStore ssTableDataStore;
+    @Inject private MemTableDataStore memTableDataStore;
+    @Inject private IndexDataStore indexDataStore;
+    @Inject private SSTableDataStore ssTableDataStore;
 
     @Override
     public String search(String key) throws IOException {

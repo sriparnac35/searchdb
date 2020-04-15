@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface DocumentQueue<T> extends Initializable {
     void push(T data);
-    void push(List<T> data);
     T getNext();
-    void ack(List<Integer> ids);
+    void ack();
 }

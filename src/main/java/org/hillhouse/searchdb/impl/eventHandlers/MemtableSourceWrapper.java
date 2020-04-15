@@ -32,7 +32,7 @@ public class MemtableSourceWrapper implements Initializable {
     public void initialize() throws Exception {
         dataStore.initialize();
         executorService = Executors.newSingleThreadScheduledExecutor();
-        executorService.schedule(new WalEntryRunnable(), MEMTABLE_SOURCE_INTERVAL_IN_SEC, TimeUnit.SECONDS);
+        executorService.scheduleWithFixedDelay(new WalEntryRunnable(), 0, MEMTABLE_SOURCE_INTERVAL_IN_SEC, TimeUnit.SECONDS);
     }
 
     @Override
@@ -42,21 +42,25 @@ public class MemtableSourceWrapper implements Initializable {
 
     private class WalEntryRunnable implements Runnable{
 
-        @SneakyThrows
         @Override
         public void run() {
-            WalDataEntry walQueueItem = documentQueue.getNext();
-            MemTableDataKey dataKey = MemTableDataKey.builder().walID(walQueueItem.getWalID())
-                    .logID(walQueueItem.getLogID()).rowKey(walQueueItem.getRowKey()).build();
-            switch (walQueueItem.getOperationType()) {
-                case INSERT:
-                    dataStore.insert(dataKey, MemTableDataValue.builder().value(walQueueItem.getValue()).build());break;
-                case UPDATE:
-                    dataStore.update(dataKey, MemTableDataValue.builder().value(walQueueItem.getValue()).build());break;
-                case DELETE:
-                    dataStore.delete(dataKey);break;
+            try{
+                WalDataEntry walQueueItem = documentQueue.getNext();
+                MemTableDataKey dataKey = MemTableDataKey.builder().walID(walQueueItem.getWalID())
+                        .logID(walQueueItem.getLogID()).rowKey(walQueueItem.getRowKey()).build();
+                switch (walQueueItem.getOperationType()) {
+                    case INSERT:
+                        dataStore.insert(dataKey, MemTableDataValue.builder().value(walQueueItem.getValue()).build());break;
+                    case UPDATE:
+                        dataStore.update(dataKey, MemTableDataValue.builder().value(walQueueItem.getValue()).build());break;
+                    case DELETE:
+                        dataStore.delete(dataKey);break;
+                }
+                documentQueue.ack();
+            }catch (Exception e){
+                log.error(e.getMessage(), e);
             }
-            documentQueue.ack(Collections.singletonList(walQueueItem.getLogID()));
+
         }
     }
 }

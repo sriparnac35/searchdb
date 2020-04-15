@@ -50,7 +50,7 @@ public class BST<K, T extends BST.NodeItem<K>> {
         }
         if (comparator.compare(value.getID(), root.getData().getID()) < 0)
             root.left = insertRec(root.left, value);
-        else if (comparator.compare(value.getID(), root.getData().getID()) < 0) {
+        else {
             root.right = insertRec(root.right, value);
         }
         return root;

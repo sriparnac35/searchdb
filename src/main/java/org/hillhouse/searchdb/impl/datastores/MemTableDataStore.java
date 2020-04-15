@@ -3,6 +3,7 @@ package org.hillhouse.searchdb.impl.datastores;
 import com.google.inject.Inject;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hillhouse.searchdb.constants.MemtableConstants;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventPublisher;
@@ -12,13 +13,14 @@ import org.hillhouse.searchdb.models.wrappers.CurrentMemtableWrapper;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@NoArgsConstructor
-@AllArgsConstructor
+
+@RequiredArgsConstructor
 public class MemTableDataStore implements EventPublisher, DataStore<MemTableDataKey, MemTableDataValue, MemTableDataKey, MemtableSearchValue> {
-    @Inject private CurrentMemtableWrapper memtableWrapper;
+    private final CurrentMemtableWrapper memtableWrapper;
     private ExecutorService executorService;
 
     @Override
@@ -53,8 +55,9 @@ public class MemTableDataStore implements EventPublisher, DataStore<MemTableData
     @Override
     public MemtableSearchValue search(MemTableDataKey key) throws IOException {
         Memtable.DataItem dataItem = memtableWrapper.getCurrentMemtable().search(key.getRowKey());
-        MemtableSearchValueItem value = MemtableSearchValueItem.builder().isDeleted(dataItem.isDeleted()).value(dataItem.getValue()).build();
-        return new MemtableSearchValue(Collections.singletonList(value));
+        List<MemtableSearchValueItem> values = (dataItem == null) ? null : Collections.singletonList(MemtableSearchValueItem.builder()
+                .isDeleted(dataItem.isDeleted()).value(dataItem.getValue()).build());
+        return new MemtableSearchValue(values);
     }
 
     @Override
@@ -83,6 +86,7 @@ public class MemTableDataStore implements EventPublisher, DataStore<MemTableData
 
         @Override
         public void run() {
+            System.out.println("inserting : " + dataKey.getRowKey());
             Memtable.DataItem dataItem = Memtable.DataItem.builder().rowID(dataKey.getRowKey())
                     .value(dataValue.getValue()).isDeleted(dataValue.isDeleted()).build();
             Memtable currentMemTable = memtableWrapper.getCurrentMemtable();

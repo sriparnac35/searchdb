@@ -35,13 +35,14 @@ public class IndexPoolWrapper implements Initializable {
         eventSubscribers.forEach((key, value) -> eventManager.unsubscribeToEvent(value, key));
     }
 
+    @Slf4j
     private class PersistToSSTableEndEventHandler implements EventSubscriber<PersistToSSTableEndEvent> {
         @Override
         public void onEvent(PersistToSSTableEndEvent event) {
             try {
                 dataStore.insert(idDao.getNextID(), event.getSsTableName());
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error(e.getMessage(), e);
             }
         }
     }

@@ -30,7 +30,8 @@ public class SearchDBApplication {
         searchDB.insert("key", "value");
         searchDB.insert("key1", "value1");
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         System.out.println(searchDB.search("key"));
+        System.out.println(searchDB.search("key1"));
     }
 }

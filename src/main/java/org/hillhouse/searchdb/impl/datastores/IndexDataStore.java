@@ -2,6 +2,7 @@ package org.hillhouse.searchdb.impl.datastores;
 
 import com.google.inject.Inject;
 import javafx.util.Pair;
+import lombok.RequiredArgsConstructor;
 import org.hillhouse.searchdb.constants.IndexConstants;
 import org.hillhouse.searchdb.interfaces.processors.DataStore;
 import org.hillhouse.searchdb.models.diskDS.SSTableDataKey;
@@ -16,8 +17,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@RequiredArgsConstructor
 public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey, SSTableSearchKey> {
-    @Inject private SSTableDataStore dataStore;
+    private final SSTableDataStore dataStore;
     private List<Index> indexList;
 
     @Override
@@ -37,8 +39,10 @@ public class IndexDataStore implements DataStore<Integer, String, IndexSearchKey
     }
 
     @Override
-    public void initialize() throws Exception {
-        indexList = new ArrayList<>();
+    public synchronized void initialize() throws Exception {
+        if (indexList == null){
+            indexList = new ArrayList<>();
+        }
     }
 
     @Override

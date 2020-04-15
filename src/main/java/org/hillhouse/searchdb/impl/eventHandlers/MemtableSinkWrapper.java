@@ -36,10 +36,9 @@ public class MemtableSinkWrapper implements EventPublisher, Initializable {
 
     @Override
     public void initialize() throws Exception {
-
         addEventSubscribers();
         sinkExecutorService = Executors.newSingleThreadScheduledExecutor();
-        sinkExecutorService.schedule(new PublishMemtableForSinkRunnable(), MEMTABLE_SINK_INTERVAL_IN_SEC, TimeUnit.SECONDS);
+        sinkExecutorService.scheduleWithFixedDelay(new PublishMemtableForSinkRunnable(),0, MEMTABLE_SINK_INTERVAL_IN_SEC, TimeUnit.SECONDS);
     }
 
     @Override

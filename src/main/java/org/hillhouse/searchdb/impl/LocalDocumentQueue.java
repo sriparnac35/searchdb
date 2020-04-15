@@ -17,20 +17,14 @@ public class LocalDocumentQueue<T> implements DocumentQueue<T> {
     public void push(T data) {
         queue.add(data);
     }
-
-    @Override
-    public void push(List<T> data) {
-        queue.addAll(data);
-    }
-
     @Override
     public T getNext() {
         return queue.size() > 0 ? queue.peek() : null;
     }
 
     @Override
-    public void ack(List<Integer> ids) {
-        ids.forEach(item -> queue.remove((int) item));
+    public void ack() {
+        queue.pop();
     }
 
     @Override

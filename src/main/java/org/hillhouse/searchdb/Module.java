@@ -5,6 +5,9 @@ import org.hillhouse.searchdb.impl.LocalDocumentQueue;
 import org.hillhouse.searchdb.impl.LocalEventProcessor;
 import org.hillhouse.searchdb.impl.LocalFileDiskDao;
 import org.hillhouse.searchdb.impl.LocalIDDao;
+import org.hillhouse.searchdb.impl.datastores.IndexDataStore;
+import org.hillhouse.searchdb.impl.datastores.MemTableDataStore;
+import org.hillhouse.searchdb.impl.datastores.SSTableDataStore;
 import org.hillhouse.searchdb.interfaces.dao.DiskDao;
 import org.hillhouse.searchdb.interfaces.dao.IDDao;
 import org.hillhouse.searchdb.interfaces.eventSystem.EventManager;
@@ -43,4 +46,23 @@ public class Module extends AbstractModule {
         return wrapper;
     }
 
+    @Provides @Singleton @Inject
+    public MemTableDataStore provideMemtableDataStore(CurrentMemtableWrapper memtableWrapper) throws Exception {
+        MemTableDataStore memTableDataStore = new MemTableDataStore(memtableWrapper);
+        memTableDataStore.initialize();
+        return memTableDataStore;
+    }
+
+    @Inject @Provides @Singleton
+    public IndexDataStore provideIndexDataStore(SSTableDataStore dataStore) throws Exception {
+        IndexDataStore indexDataStore = new IndexDataStore(dataStore);
+        indexDataStore.initialize();
+        return indexDataStore;
+    }
+    @Inject @Provides @Singleton
+    public SSTableDataStore provideSSTableDataStore(DiskDao diskDao) throws Exception {
+        SSTableDataStore dataStore = new SSTableDataStore(diskDao);
+        dataStore.initialize();
+        return dataStore;
+    }
 }
