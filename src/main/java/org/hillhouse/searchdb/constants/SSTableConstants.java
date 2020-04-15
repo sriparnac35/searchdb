@@ -1,6 +1,8 @@
 package org.hillhouse.searchdb.constants;
 
 public class SSTableConstants {
+    public static final String SS_DIRECTORY = System.getProperty("user.dir") + "/src/main/resources/ss/";
+
     public static final int MAX_ROW_ID_LENGTH = 256;
 
     public static final int OFFSET_ROW_ID = 0;

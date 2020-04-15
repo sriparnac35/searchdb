@@ -24,13 +24,13 @@ import static org.hillhouse.searchdb.constants.MemtableConstants.MEMTABLE_SOURCE
 
 @Slf4j
 public class MemtableSourceWrapper implements Initializable {
-    @Inject private EventManager eventManager;
     @Inject private DocumentQueue<WalDataEntry> documentQueue;
     @Inject private MemTableDataStore dataStore;
     private ScheduledExecutorService executorService;
 
     @Override
     public void initialize() throws Exception {
+        dataStore.initialize();
         executorService = Executors.newSingleThreadScheduledExecutor();
         executorService.schedule(new WalEntryRunnable(), MEMTABLE_SOURCE_INTERVAL_IN_SEC, TimeUnit.SECONDS);
     }

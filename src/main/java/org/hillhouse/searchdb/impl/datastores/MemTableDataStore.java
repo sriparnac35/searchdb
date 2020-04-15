@@ -16,6 +16,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @NoArgsConstructor
+@AllArgsConstructor
 public class MemTableDataStore implements EventPublisher, DataStore<MemTableDataKey, MemTableDataValue, MemTableDataKey, MemtableSearchValue> {
     @Inject private CurrentMemtableWrapper memtableWrapper;
     private ExecutorService executorService;

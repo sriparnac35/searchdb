@@ -14,7 +14,7 @@ public class BST<K, T extends BST.NodeItem<K>> {
     private int count = 0;
 
     public void insert(T value) {
-        insertRec(root, value);
+        root = insertRec(root, value);
         count++;
     }
 

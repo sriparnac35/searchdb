@@ -20,9 +20,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.hillhouse.searchdb.constants.SSTableConstants.SS_DIRECTORY;
+
 @NoArgsConstructor
 public class SSTableDataStore implements DataStore<SSTableDataKey, SSTableDataValue, SSTableSearchKey, SSTableDataValue> {
-    private static final String FILE_PREFIX = "ss_";
+    private static final String FILE_PREFIX = SS_DIRECTORY + "ss_";
     @Inject private DiskDao diskDao;
 
     @Override

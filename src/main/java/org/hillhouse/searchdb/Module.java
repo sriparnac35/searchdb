@@ -1,9 +1,6 @@
 package org.hillhouse.searchdb;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
-import com.google.inject.Singleton;
-import com.google.inject.TypeLiteral;
+import com.google.inject.*;
 import org.hillhouse.searchdb.impl.LocalDocumentQueue;
 import org.hillhouse.searchdb.impl.LocalEventProcessor;
 import org.hillhouse.searchdb.impl.LocalFileDiskDao;
@@ -23,7 +20,6 @@ public class Module extends AbstractModule {
         bind(new TypeLiteral<DataStore<String, String, String, String>>(){}).to(SearchDB.class);
         bind(DiskDao.class).to(LocalFileDiskDao.class);
         bind(IDDao.class).to(LocalIDDao.class);
-        bind(CurrentMemtableWrapper.class).toInstance(new CurrentMemtableWrapper());
     }
 
     @Provides @Singleton
@@ -39,4 +35,12 @@ public class Module extends AbstractModule {
         queue.initialize();
         return queue;
     }
+
+    @Provides @Singleton @Inject
+    public CurrentMemtableWrapper getCurrentMemtableWrapper(IDDao idDao){
+        CurrentMemtableWrapper wrapper = new CurrentMemtableWrapper();
+        wrapper.setIdDao(idDao);
+        return wrapper;
+    }
+
 }
