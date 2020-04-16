@@ -12,10 +12,8 @@ import java.io.IOException;
 
 @NoArgsConstructor
 public class SearchDBApplication {
+    @Inject private ApplicationComponents applicationComponents;
     @Inject private SearchDB searchDB;
-    @Inject private MemtableSourceWrapper memtableSourceWrapper;
-    @Inject private MemtableSinkWrapper memtableSinkWrapper;
-    @Inject private SSTableEventWrapper ssTableEventWrapper;
 
     public static void main(String[] args) throws Exception {
         Injector injector = Guice.createInjector(new Module());
@@ -23,9 +21,7 @@ public class SearchDBApplication {
         application.run();
     }
     public void run() throws Exception {
-        ssTableEventWrapper.initialize();
-        memtableSinkWrapper.initialize();
-        memtableSourceWrapper.initialize();
+        applicationComponents.initialize();
         searchDB.initialize();
         searchDB.insert("key", "value");
         searchDB.insert("key1", "value1");

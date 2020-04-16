@@ -13,6 +13,7 @@ import org.hillhouse.searchdb.models.wrappers.CurrentMemtableWrapper;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -56,7 +57,7 @@ public class MemTableDataStore implements EventPublisher, DataStore<MemTableData
 
     @Override
     public MemtableSearchValue search(MemTableDataKey key) throws IOException {
-        Memtable.DataItem dataItem = memtableWrapper.getCurrentMemtable().search(key.getRowKey());
+        Memtable.DataItem dataItem = search(key.getRowKey());
         List<MemtableSearchValueItem> values = (dataItem == null) ? null : Collections.singletonList(MemtableSearchValueItem.builder()
                 .isDeleted(dataItem.isDeleted()).value(dataItem.getValue()).build());
         return new MemtableSearchValue(values);
@@ -79,6 +80,20 @@ public class MemTableDataStore implements EventPublisher, DataStore<MemTableData
 
     private boolean isMemtableFull() {
         return memtableWrapper.getCurrentMemtable().size() == MemtableConstants.MAX_SIZE;
+    }
+
+    private Memtable.DataItem search(String key) throws IOException {
+        Memtable.DataItem dataItem = memtableWrapper.getCurrentMemtable().search(key);
+        if (dataItem != null){
+            return dataItem;
+        }
+        for(Iterator<Memtable> iterator = memtableWrapper.getOldTables().iterator() ; iterator.hasNext(); ){
+            dataItem = iterator.next().search(key);
+            if (dataItem != null){
+                break;
+            }
+        }
+        return dataItem;
     }
 
     @AllArgsConstructor
