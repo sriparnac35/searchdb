@@ -17,7 +17,7 @@
         <version.junit>4.11</version.junit>
         <version.guice>4.0</version.guice>
         <version.lombok>1.18.10</version.lombok>
-        <jackson.core.version>2.9.9</jackson.core.version>
+        <jackson.core.version>2.12.6.1</jackson.core.version>
         <slf4j-version>1.6.1</slf4j-version>
     </properties>
 
